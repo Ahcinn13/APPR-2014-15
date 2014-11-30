@@ -13,3 +13,8 @@ Podatke bom pridobila iz naslednjih spletnih virov:
 - http://en.wikipedia.org/wiki/List_of_doping_cases_in_sport
 
 Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem pa pridobiti pozitivno oceno pri predmetu ANPP.
+
+
+2.FAZA
+
+V mapo s podatki sem dodala tri tabele. 
