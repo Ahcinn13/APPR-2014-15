@@ -10,9 +10,11 @@ uvoz.doping <- function() {
 # Zapišimo podatke v razpredelnico doping.data.
 cat("Uvažam podatke o številu dopinških testov... \n")
 doping.data <- uvoz.doping()
-
-
-
+doping.data <- doping.data[,-5]
+doping.data$Year <- as.numeric(doping.data$Year)
+doping.data$Sport <- as.character(doping.data$Sport)
+doping.data$Samples <- as.numeric(doping.data$Samples)
+doping.data$Total.findings <- as.numeric(doping.data$Total.findings)
 
 
 
@@ -34,11 +36,10 @@ doping.ZOI <- uvoz.zoi()
 
 # Funkcija, ki uvozi podatke iz doping_at_the_summer_olympic_games.csv:  
 uvoz.poi <- function() {
-  return(read.table("podatki/doping_at_the_summer_olympic_games.csv", sep = ";", as.is = TRUE, header=TRUE,
-                    na.strings="-",
-                    fileEncoding = "Windows-1250"))
-}
 
+  return(read.tabel("podatki/doping_at_the_summer_olympic_games.csv", skip = 0, na.strings = "-",
+               fileEncoding = "Windows-1250", header=TRUE))
+}
 # Zapišimo podatke v razpredelnico doping.POI.
 cat("Uvažam podatke o dopinških primerih na poletnih Olimpijskih igrah... \n")
 doping.POI <- uvoz.POI()
