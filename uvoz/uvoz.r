@@ -18,9 +18,11 @@ doping.data$Total.findings <- as.numeric(doping.data$Total.findings)
 
 
 
+
+
 # Funkcija, ki uvozi podatke iz doping_at_the_winter_olympic_games.csv:
 uvoz.zoi <- function() {
-  return(read.table("podatki/doping_at_the_winter_olympic_games.csv", sep = ";", as.is = TRUE, header=TRUE,
+  return(read.table("podatki/doping_at_the_winter_olympic_games.csv", sep = ";", row.names = 1, as.is = TRUE, header=TRUE,
                     na.strings="-",
                     fileEncoding = "Windows-1250"))
 }
