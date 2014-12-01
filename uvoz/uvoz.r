@@ -1,16 +1,49 @@
 # 2. faza: Uvoz podatkov
 
-# Funkcija, ki uvozi podatke iz datoteke druzine.csv
-uvoziDruzine <- function() {
-  return(read.table("podatki/druzine.csv", sep = ";", as.is = TRUE,
-                      row.names = 1,
-                      col.names = c("obcina", "en", "dva", "tri", "stiri"),
+# Funkcija, ki uvozi podatke iz UKAD Olympic doping data.csv:
+uvoz.doping <- function() {
+  return(read.table("podatki/UKAD Olympic doping data.csv", sep = ";", as.is = TRUE, header=TRUE, 
+                    na.strings="-", 
                       fileEncoding = "Windows-1250"))
 }
 
-# Zapišimo podatke v razpredelnico druzine.
-cat("Uvažam podatke o družinah...\n")
-druzine <- uvoziDruzine()
+# Zapišimo podatke v razpredelnico doping.data.
+cat("Uvažam podatke o številu dopinških testov... \n")
+doping.data <- uvoz.doping()
+
+
+
+
+
+
+# Funkcija, ki uvozi podatke iz doping_at_the_winter_olympic_games.csv:
+uvoz.zoi <- function() {
+  return(read.table("podatki/doping_at_the_winter_olympic_games.csv", sep = ";", as.is = TRUE, header=TRUE,
+                    na.strings="-",
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podtake v razpredelnico doping.ZOI.
+cat("Uvažam podatke o dopinških primerih na zimskih Olimpijskih igrah... \n")
+doping.ZOI <- uvoz.zoi()
+
+
+
+
+
+
+# Funkcija, ki uvozi podatke iz doping_at_the_summer_olympic_games.csv:  
+uvoz.poi <- function() {
+  return(read.table("podatki/doping_at_the_summer_olympic_games.csv", sep = ";", as.is = TRUE, header=TRUE,
+                    na.strings="-",
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico doping.POI.
+cat("Uvažam podatke o dopinških primerih na poletnih Olimpijskih igrah... \n")
+doping.POI <- uvoz.POI()
+
+
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
