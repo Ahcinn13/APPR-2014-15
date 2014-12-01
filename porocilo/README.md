@@ -17,4 +17,4 @@ Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem
 
 2.FAZA
 
-V mapo s podatki sem dodala tri tabele. 
+V mapo s podatki sem dodala tri tabele. Na podlagi zbranih podatkov, sem dve tabeli naredila sama v xlsx obliki, ter ju nato pretvorila v csv obliko. Na koncu pa sem vse tri tabele uvozila na svoj repozitorij.
