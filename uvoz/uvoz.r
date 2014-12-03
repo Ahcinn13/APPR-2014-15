@@ -2,7 +2,7 @@
 
 # Funkcija, ki uvozi podatke iz UKAD Olympic doping data.csv:
 uvoz.doping <- function() {
-  return(read.table("podatki/UKAD Olympic doping data.csv", sep = ";", as.is = TRUE, header=TRUE, 
+  return(read.csv2("podatki/UKAD Olympic doping data.csv", sep = ";", dec=",", as.is = TRUE, header=TRUE, 
                     na.strings="-", 
                       fileEncoding = "Windows-1250"))
 }
@@ -10,13 +10,18 @@ uvoz.doping <- function() {
 # Zapišimo podatke v razpredelnico doping.data.
 cat("Uvažam podatke o številu dopinških testov... \n")
 doping.data <- uvoz.doping()
-doping.data <- doping.data[,-5]
+
+names(doping.data) <- c("Year", "Sport", "Samples", "Total.findings", "procent.ofDopingCases")
+doping.data$procent.ofDopingCases <- gsub("[%]", "", procent.ofDopingCases, ignore.case=TRUE)
+doping.data$Samples <- gsub("[.]", "", Samples, ignore.case=TRUE)
+
+
 
 # Tipi spremenljivk:
 doping.data$Year <- as.numeric(doping.data$Year)
 doping.data$Sport <- as.character(doping.data$Sport)
 doping.data$Samples <- as.numeric(doping.data$Samples)
-doping.data$Total.findings <- as.numeric(doping.data$Total.findings)
+#doping.data$procent.ofDopingCases <- as.numeric(doping.data$procent.ofDopingCases)
 
 
 
