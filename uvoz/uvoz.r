@@ -37,12 +37,12 @@ doping.ZOI <- uvoz.zoi()
 # Funkcija, ki uvozi podatke iz doping_at_the_summer_olympic_games.csv:  
 uvoz.poi <- function() {
 
-  return(read.tabel("podatki/doping_at_the_summer_olympic_games.csv", row.names=1, skip = 0, na.strings = "-",
+  return(read.table("podatki/doping_at_the_summer_olympic_games.csv", row.names=1, sep=";", skip = 0, na.strings = "-",
                fileEncoding = "Windows-1250", header=TRUE))
 }
 # Zapišimo podatke v razpredelnico doping.POI.
 cat("Uvažam podatke o dopinških primerih na poletnih Olimpijskih igrah... \n")
-doping.POI <- uvoz.POI()
+doping.POI <- uvoz.poi()
 
 
 # Uvoz podatkOV iz spletnih strani:
