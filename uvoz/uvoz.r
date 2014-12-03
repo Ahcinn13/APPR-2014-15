@@ -12,8 +12,9 @@ cat("Uvažam podatke o številu dopinških testov... \n")
 doping.data <- uvoz.doping()
 
 names(doping.data) <- c("Year", "Sport", "Samples", "Total.findings", "procent.ofDopingCases")
-doping.data$procent.ofDopingCases <- gsub("[%]", "", procent.ofDopingCases, ignore.case=TRUE)
-doping.data$Samples <- gsub("[.]", "", Samples, ignore.case=TRUE)
+doping.data$procent.ofDopingCases <- gsub("[%]", "", doping.data$procent.ofDopingCases, ignore.case=TRUE)
+doping.data$procent.ofDopingCases <- gsub("[,]", ".", doping.data$procent.ofDopingCases, ignore.case=TRUE)
+doping.data$Samples <- gsub("[.]", "", doping.data$Samples, ignore.case=TRUE)
 
 
 
@@ -21,7 +22,7 @@ doping.data$Samples <- gsub("[.]", "", Samples, ignore.case=TRUE)
 doping.data$Year <- as.numeric(doping.data$Year)
 doping.data$Sport <- as.character(doping.data$Sport)
 doping.data$Samples <- as.numeric(doping.data$Samples)
-#doping.data$procent.ofDopingCases <- as.numeric(doping.data$procent.ofDopingCases)
+doping.data$procent.ofDopingCases <- as.numeric(doping.data$procent.ofDopingCases)
 
 
 
