@@ -37,7 +37,7 @@ Year;Sport;Samples;Total findings;% findings
 2006;Baseball;15.977;370;2,32%
 2007;Baseball;16.971;456;2,69%
 2008;Baseball;19.429;228;1,17%
-2004;Baseball/ Softball;165;8;4,85%
+2004;Baseball/Softball;165;8;4,85%
 2005;Baseball/Softball;170;11;6,47%
 2006;Baseball/Softball;104;6;5,77%
 2007;Baseball/Softball;116;9;7,76%
@@ -146,7 +146,7 @@ Year;Sport;Samples;Total findings;% findings
 2008;Hockey;2.331;26;1,12%
 2009;Hockey;2.118;45;2,12%
 2010;Hockey;2.275;57;2,51%
-2004;Hockey/ Skating;71;1;1,41%
+2004;Hockey/Skating;71;1;1,41%
 2005;Hockey/Skating;101;3;2,97%
 2006;Hockey/Skating;16;0;0,00%
 2009;Hockey/Skating;43;1;2,33%
@@ -272,8 +272,6 @@ Year;Sport;Samples;Total findings;% findings
 2008;Triathlon;3.043;83;2,73%
 2009;Triathlon;3.262;102;3,13%
 2010;Triathlon;3.676;86;2,34%
-2003;Unknown;450;2;0,44%
-2004;Unknown;192;4;2,08%
 2003;Volleyball;2.732;35;1,28%
 2004;Volleyball;3.024;37;1,22%
 2005;Volleyball;2.621;54;2,06%
