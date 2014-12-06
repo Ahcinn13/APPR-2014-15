@@ -12,8 +12,8 @@ cat("Uvažam podatke o številu dopinških testov... \n")
 doping.data <- uvoz.doping()
 
 names(doping.data) <- c("Year", "Sport", "Samples", "Total.findings", "procent.ofDopingCases")
-doping.data$procent.ofDopingCases <- gsub("[%]", "", doping.data$procent.ofDopingCases, ignore.case=TRUE)
-doping.data$procent.ofDopingCases <- gsub("[,]", ".", doping.data$procent.ofDopingCases, ignore.case=TRUE)
+doping.data$procent.ofDopingCases <- gsub("[%]", "", doping.data$procent.ofDopingCases)
+doping.data$procent.ofDopingCases <- gsub("[,]", ".", doping.data$procent.ofDopingCases)
 doping.data$Samples <- gsub("[.]", "", doping.data$Samples, ignore.case=TRUE)
 
 
@@ -26,29 +26,81 @@ doping.data$procent.ofDopingCases <- as.numeric(doping.data$procent.ofDopingCase
 
 
 
+# Pomožna tabela:
+tabela1 <- data.frame(table(doping.data$Sport))
+
+
+# Funkcija, ki sešteje procente dopinških primerov po posameznih športih v različnih letih:
+vsota <- function(vektor) {
+  z <- c()
+  for (i in vektor) {
+    y <- c(sum(doping.data$procent.ofDopingCases[doping.data$Sport == i]))
+    z <- c(z,y)
+  }
+return(z)
+}
+
+
+povprecje <- round(vsota(tabela1$Var1)/tabela1$Freq, digits = 3)
+
+tabela2 <- data.frame(tabela1[-2], povprecje)
+
+names(tabela2) <- c("Sport", "Average")
+
+
+# Dodajanje urejenoste spremenljivke
+kategorije <- c("dopinških primerov ni bilo", 
+                "malo", 
+                "srednje", 
+                "veliko")
+stevilo<-character(length(tabela2$Average))
+stevilo[tabela2$Average == 0.000] <- "dopinških primerov ni bilo"
+stevilo[tabela2$Average > 0.000
+        & tabela2$Average <= 1.500] <- "malo"
+stevilo[tabela2$Average > 1.500
+        & tabela2$Average <= 2.500] <- "srednje"
+stevilo[tabela2$Average > 2.500] <- "veliko"
+kategorija <- factor(stevilo, levels = kategorije, ordered = TRUE)
+
+dopingBySports <- data.frame(tabela2,
+                             kategorija=kategorija)
+
+
+names(dopingBySports) <- c("Sport", "Average", "Number.ofDopingCases")
 
 
 # Funkcija, ki uvozi podatke iz doping_at_the_winter_olympic_games.csv:
 uvoz.zoi <- function() {
-  return(read.table("podatki/doping_at_the_winter_olympic_games.csv", sep = ";", row.names = 1, as.is = TRUE, header=TRUE,
+  return(read.table("podatki/doping_at_the_winter_olympic_games.csv", sep = ";", as.is = TRUE, header=TRUE,
                     na.strings="-",
                     fileEncoding = "Windows-1250"))
 }
+
+
 
 # Zapišimo podtake v razpredelnico doping.ZOI.
 cat("Uvažam podatke o dopinških primerih na zimskih Olimpijskih igrah... \n")
 doping.ZOI <- uvoz.zoi()
 
+names(doping.ZOI) <- c("Athlete", "Sex", "Country", "Sport",  "Banned.substance",	"Place",	"Year")
+
 
 # Funkcija, ki uvozi podatke iz doping_at_the_summer_olympic_games.csv:  
 uvoz.poi <- function() {
 
-  return(read.table("podatki/doping_at_the_summer_olympic_games.csv", row.names=1, sep=";", skip = 0, na.strings = "-",
+  return(read.table("podatki/doping_at_the_summer_olympic_games.csv", sep=";", skip = 0, na.strings = "-",
                fileEncoding = "Windows-1250", header=TRUE))
 }
+
+
+
 # Zapišimo podatke v razpredelnico doping.POI.
 cat("Uvažam podatke o dopinških primerih na poletnih Olimpijskih igrah... \n")
 doping.POI <- uvoz.poi()
+
+names(doping.POI) <- c("Athlete", "Sex", "Country", "Sport",	"Banned.substance",	"Place",	"Year")
+
+
 
 
 # Uvoz podatkOV iz spletnih strani:
