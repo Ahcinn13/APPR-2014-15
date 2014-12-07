@@ -18,8 +18,7 @@ Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem
 
 2.FAZA
 
-
-v svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, ostali dve sem V Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Preostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem si tudi nekoliko olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v enim izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. 
+V svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, preostali dve sem V Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Ostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem si tudi nekoliko olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v eni izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. 
 
 Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (5 stolpičnih, 2 tortna diagrama ter 1 graf).
 Program za risnje grafov sem napisala v datoteki grafi.r, ki sem ga shranila v mapo slike. Zaradi lažjega risanja grafov, sem na novo definirala nekaj funkcij, dodala novo tabelo oziroma novo spremenljivko.
