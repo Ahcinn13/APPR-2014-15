@@ -5,7 +5,7 @@
 Določila sem temo svojega projekta. 
 Tema mojega projekta je doping v športu. Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot so na primer: kako se je število dopingiranih športnikov v preteklosti spreminjalo, iz kje so prihajali, v katerih športih so se udejstvovali, katera tekmovanja (Olimpijske igre, svetovna prvenstva, Tour de France) so postregla z največ dopinškimi škandali, s katerimi nedovoljenimi sredstvi si športniki napogosteje pomagajo do čim boljšega rezultata.
 
-Podatke bom pridobila iz naslednjih spletnih virov:
+Podatke sem oziroma bom pridobila iz naslednjih spletnih virov:
 - http://en.wikipedia.org/wiki/Doping_at_the_Olympic_Games
 - http://en.wikipedia.org/wiki/List_of_doping_cases_in_athletics
 - http://sportsanddrugs.procon.org/view.resource.php?resourceID=004420
@@ -17,9 +17,6 @@ Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem
 
 
 2.FAZA
-
-V mapo s podatki sem dodala tri tabele. Na podlagi zbranih podatkov, sem dve tabeli naredila sama v xlsx obliki, ter ju nato pretvorila v csv obliko. Na koncu pa sem vse tri tabele uvozila na svoj repozitorij. 
-za vsako tabelo sem preverila še tipe spremenljivk in jih po potrebi spremenila.
 
 
 v svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, ostali dve sem V Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Preostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem si tudi nekoliko olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v enim izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. 
