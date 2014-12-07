@@ -1,4 +1,4 @@
-pdf("slike/grafi.pdf", paper="a4")
+pdf("pgrafi.pdf", paper="a4")
 
 year.place <- paste(doping.ZOI$Year, doping.ZOI$Place, sep="-")
 
@@ -23,19 +23,48 @@ barplot(c(length(gold.medals$Athlete),length(silver.medals$Athlete), length(bron
 
 
 barplot(table(doping.ZOI$Sport), beside = TRUE, main = "DOPINŠKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
-        xlab="ŠPORTNE PANOGE",cex.names=0.6, ylab= "število dopinških primerov", 
-        col = rainbow(6), xlim=c(0,8))
+        xlab="ŠPORTNE PANOGE",cex.names=0.8, space= 0.5, ylab= "število dopinških primerov", 
+        col = rainbow(6), xlim=c(0,7))
 
 
-barplot(table(doping.POI$Sport), beside = TRUE, main = "DOPINŠKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
-        xlab="ŠPORTNE PANOGE",cex.names=0.5, ylab= "število dopinških primerov", 
-        col = rainbow(12, start=0, end=3/4), xlim=c(0,14), ylim=c(0,40))
+
+barplot(table(doping.POI$Sport), beside = TRUE, names.arg=c(""), main = "DOPINŠKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
+        xlab="ŠPORTNE PANOGE",cex.names=0.5,space = 0, ylab= "število dopinških primerov", 
+        col = rainbow(15), xlim=c(0,30), ylim=c(0,45),
+legend = paste(names(table(doping.POI$Sport)), table(doping.POI$Sport), sep=" - "))
 
 
 pie(table(doping.ZOI$Sex), labels= c("Men", "Women"), main="RAZMERJE DOPINŠKIH PRIMEROV PO SPOLU NA ZOI")
 
 pie(table(doping.POI$Sex), labels= c("Men", "Women"), main="RAZMERJE DOPINŠKIH PRIMEROV PO SPOLU NA POI")
 
+# Pomožna funkcija
+vsota2 <- function(vek) {
+  z <- c()
+  b <- c()
+  for (i in vek) {
+    y <- c(sum(doping.data$Samples[doping.data$Year == i]))
+    d <- c(sum(doping.data$Total.findings[doping.data$Year== i]))
+    z <- c(z,y)
+    b <- c(b,d)
+  }
+  return(data.frame(2003:2010,z,b))
+}
 
+vzorci <- vsota2(2003:2010)
+names(vzorci) <- c("leto", "Samples", "Total.findings")
+
+
+plot(c(2003,2010), c(min(vzorci[3]), max(vzorci[2])), type = "n",
+     xlab="Leto", ylab="število dopinških testov",
+     main="ŠTEVILO DOPINŠKIH TESTOV")
+lines(c(2003:2010), vzorci$Samples[vzorci$leto == c(2003:2010)], type="l", pch=20, col="magenta")
+lines(c(2003:2010), vzorci$Total.findings[vzorci$leto == c(2003:2010)], type="l", pch=20, col="blue")
+legend("topleft",
+       legend = c("število vseh vzorcev", "število pozitivnih vzorcev"),
+       col = c("magenta", "blue"),
+       lty = c("solid", "solid"),
+       pch = c(20, 20),
+       bg = ("white"))
 
 dev.off()
