@@ -16,6 +16,7 @@ Podatke sem oziroma bom pridobila iz naslednjih spletnih virov:
 Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem pa pridobiti pozitivno oceno pri predmetu ANPP.
 
 
+
 2.FAZA
 
 V svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, preostali dve sem v Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Ostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem si tudi nekoliko olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v eni izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. 
