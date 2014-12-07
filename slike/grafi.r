@@ -1,4 +1,4 @@
-pdf("pgrafi.pdf", paper="a4")
+pdf("slike/grafi.pdf", paper="a4")
 
 year.place <- paste(doping.ZOI$Year, doping.ZOI$Place, sep="-")
 
@@ -30,13 +30,26 @@ barplot(table(doping.ZOI$Sport), beside = TRUE, main = "DOPINŠKI PRIMERI NA ZIM
 
 barplot(table(doping.POI$Sport), beside = TRUE, names.arg=c(""), main = "DOPINŠKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
         xlab="ŠPORTNE PANOGE",cex.names=0.5,space = 0, ylab= "število dopinških primerov", 
-        col = rainbow(15), xlim=c(0,30), ylim=c(0,45),
+        col = rainbow(15), xlim=c(0,25), ylim=c(0,45),
 legend = paste(names(table(doping.POI$Sport)), table(doping.POI$Sport), sep=" - "))
 
 
 pie(table(doping.ZOI$Sex), labels= c("Men", "Women"), main="RAZMERJE DOPINŠKIH PRIMEROV PO SPOLU NA ZOI")
+zenske <- round(sum(doping.ZOI$Sex=="W")*100/(sum(doping.ZOI$Sex=="M")+sum(doping.ZOI$Sex=="W")), digits=2)
+moski <- round(sum(doping.ZOI$Sex=="M")*100/(sum(doping.ZOI$Sex=="M")+sum(doping.ZOI$Sex=="W")), digits=2)
+text(0.3, -0.5, paste0(zenske,"%"), col = "black")
+text(0, 0.5, paste0(moski,"%"), col = "black")
+ 
+               
+
 
 pie(table(doping.POI$Sex), labels= c("Men", "Women"), main="RAZMERJE DOPINŠKIH PRIMEROV PO SPOLU NA POI")
+zenske <- round(sum(doping.POI$Sex=="W")*100/(sum(doping.POI$Sex=="M")+sum(doping.POI$Sex=="W")), digits=2)
+moski <- round(sum(doping.POI$Sex=="M")*100/(sum(doping.POI$Sex=="M")+sum(doping.POI$Sex=="W")), digits=2)
+text(0.3, -0.5, paste0(zenske,"%"), col = "black")
+text(0, 0.5, paste0(moski,"%"), col = "black")
+zenske <- round(sum(doping.POI$Sex=="W")*100/(sum(doping.POI$Sex=="M")+sum(doping.POI$Sex=="W")), digits=2)
+moski <- round(sum(doping.POI$Sex=="M")*100/(sum(doping.POI$Sex=="M")+sum(doping.POI$Sex=="W")), digits=2)
 
 # Pomožna funkcija
 vsota2 <- function(vek) {
