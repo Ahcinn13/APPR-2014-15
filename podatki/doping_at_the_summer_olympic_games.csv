@@ -1,21 +1,21 @@
 Name;Sex;Country;Sport;Banned substance;Place;Year
 Hans Gunnar Liljenwall;M;Sweden;Pentathlon;Ethanol;Mexico City;1968
 Bakaava Buidaa;M;Mongolia;Judo;Caffeine;Munich;1972
-Rick DeMont;M;United States;Swimming;Ephedrine;Munich;1972
+Rick DeMont;M;United States of America;Swimming;Ephedrine;Munich;1972
 Jaime Huelamo;M;Spain;Cycling;Coramine;Munich;1972
 Walter Legel;M;Austria;Weightlifting;Amphetamine;Munich;1972
 Mohammad Reza Nasehi;M;Iran;Weightlifting;Ephedrine;Munich;1972
 Aad van den Hoek;M;Netherlands;Cycling;Coramine;Munich;1972
 Blagoi Blagoev;M;Bulgaria;Weightlifting;Anabolic steroid;Montreal;1976
-Mark Cameron;M;United States;Weightlifting;Anabolic steroid;Montreal;1976
+Mark Cameron;M;United States of America;Weightlifting;Anabolic steroid;Montreal;1976
 Paul Cerutti;M;Monaco;Shooting;Amphetamine;Montreal;1976
 Dragomir Ciorosian;M;Romania;Weightlifting;Fencanfamine;Montreal;1976
-Philippe Grippaldi;M;United States;Weightlifting;Anabolic steroid;Montreal;1976
+Philippe Grippaldi;M;United States of America;Weightlifting;Anabolic steroid;Montreal;1976
 Zbigniew Kaczmarek;M;Poland;Weightlifting;Anabolic steroid;Montreal;1976
 Valentin Khristov;M;Bulgaria;Weightlifting;Anabolic steroid;Montreal;1976
 Lorne Liebel;M;Canada;Sailing;Phenylpropanolamine;Montreal;1976
 Arne Norrback;M;Sweden;Weightlifting;Anabolic steroid;Montreal;1976
-Peter Pavlasek;M;Czechoslovakia;Weightlifting;Anabolic steroid;Montreal;1976
+Peter Pavlasek;M;Slovakia;Weightlifting;Anabolic steroid;Montreal;1976
 Danuta Rosani;W;Poland;Athletics;Anabolic steroid;Montreal;1976
 Serafim Grammatikopoulos;M;Greece;Weightlifting;Nandrolone;Los Angeles;1984
 Vesteinn Hafsteinsson;M;Iceland;Athletics;Nandrolone;Los Angeles;1984
@@ -30,7 +30,7 @@ Gianpaolo Urlando;M;Italy;Athletics;Testosterone;Los Angeles;1984
 Martti Vainio;M;Finland;Athletics;Methenolone;Los Angeles;1984
 Anna Verouli;W;Greece;Athletics;Nandrolone;Los Angeles;1984
 Alidad;M;Afghanistan;Wrestling;Furosemide;Seoul;1988
-Kerrith Brown;M;Great Britain;Judo;Furosemide;Seoul;1988
+Kerrith Brown;M;United Kingdom;Judo;Furosemide;Seoul;1988
 Kalman Csengeri;M;Hungary;Weightlifting;Stanozolol;Seoul;1988
 Mitko Grablev;M;Bulgaria;Weightlifting;Furosemide;Seoul;1988
 Angell Guenchev;M;Bulgaria;Weightlifting;Furosemide;Seoul;1988
@@ -39,10 +39,10 @@ Fernando Mariaca;M;Spain;Weightlifting;Pemoline;Seoul;1988
 Jorge Quesada;M;Spain;Pentathlon;Propanolol;Seoul;1988
 Andor Szanyi;M;Hungary;Weightlifting;Stanozolol;Seoul;1988
 Alexander Watson;M;Australia;Pentathlon;Caffeine;Seoul;1988
-Madina Biktagirova;W;Unified Team;Athletics;Norephedrine;Barcelona;1992
+Madina Biktagirova;W;Russia;Athletics;Norephedrine;Barcelona;1992
 Wu Dan;W;China;Volleyball;Strychnine;Barcelona;1992
-Bonnie Dasse;W;United States;Athletics;Clenbuterol;Barcelona;1992
-Jud Logan;M;United States;Athletics;Clenbuterol;Barcelona;1992
+Bonnie Dasse;W;United States of America;Athletics;Clenbuterol;Barcelona;1992
+Jud Logan;M;United States of America;Athletics;Clenbuterol;Barcelona;1992
 Nijole Medvedeva;W;Lithuania;Athletics;Meziocarde;Barcelona;1992
 Iva Prandzheva;W;Bulgaria;Athletics;Metadienone;Atlanta;1996
 Natalya Shekhodanova;W;Russia;Athletics;Stanozolol;Atlanta;1996
@@ -51,26 +51,26 @@ Ashot Danielyan;M;Armenia;Weightlifting;Stanozolol;Sydney;2000
 Izabela Dragneva;W;Bulgaria;Weightlifting;Furosemide;Sydney;2000
 Stian Grimseth;M;Norway;Weightlifting;Nandrolone;Sydney;2000
 Ivan Ivanov;M;Bulgaria;Weightlifting;Furosemide;Sydney;2000
-Marion Jones;W;United States;Athletics;THG;Sydney;2000
+Marion Jones;W;United States of America;Athletics;THG;Sydney;2000
 Alexander Leipold;M;Germany;Wrestling;Nandrolone;Sydney;2000
 Sevdalin Minchev;M;Bulgaria;Weightlifting;Furosemide;Sydney;2000
-Antonio Pettigrew;M;United States;Athletics;EPO and HGH;Sydney;2000
+Antonio Pettigrew;M;United States of America;Athletics;EPO and HGH;Sydney;2000
 Oyuunbilegiin Prevbaatar;M;Mongolia;Wrestling;Furosemide;Sydney;2000
 Andreea Raducan;W;Romania;Gymnastics;Pseudophedrine;Sydney;2000
 Andris Reinholds;M;Latvia;Rowing;Nandrolone;Sydney;2000
-Jerome Young;M;United States;Athletics;Nandrolone;Sydney;2000
+Jerome Young;M;United States of America;Athletics;Nandrolone;Sydney;2000
 Wafa Ammouri;M;Morocco;Weightlifting;Anabolic steroid;Athens;2004
 Adrian Annus;M;Hungary;Athletics;Falsified test result;Athens;2004
 Ludger Beerbaum;M;Germany;Equestrian;Betamethasone (to horse Goldfever);Athens;2004
 Yuriy Bilonog;M;Ukraine;Athletics;Oxandrolone;Athens;2004
 Andrew Brack;M;Greece;Baseball;Stanozolol;Athens;2004
 Viktor Chislean;M;Moldova;Weightlifting;Anabolic steroid;Athens;2004
-Crystal Cox;W;United States;Athletics;Anabolic steroid;Athens;2004
+Crystal Cox;W;United States of America;Athletics;Anabolic steroid;Athens;2004
 Robert Fazekas;M;Hungary;Athletics;Missed the test;Athens;2004
 Mabel Fonseca;M;Puerto Rico;Wrestling;Stanozolol;Athens;2004
 Anton Galkin;M;Russia;Athletics;Stanozolol;Athens;2004
 Ferenc Gyurkovics;M;Hungary;Weightlifting;Oxanfrolone;Athens;2004
-Tyler Hamilton;M;United States;Cycling;Blood doping;Athens;2004
+Tyler Hamilton;M;United States of America;Cycling;Blood doping;Athens;2004
 Zoltan Kecskes;M;Hungary;Weightlifting;Anabolic steroid;Athens;2004
 Albina Khomic;W;Russia;Weightlifting;Testosterone;Athens;2004
 Aye Khine Nan;W;Myanmar;Weightlifting;Anabolic steroid;Athens;2004
@@ -96,7 +96,7 @@ Lyudmila Blonska;W;Ukraine;Athletics;Methyltestosterone;Beijing;2008
 Fani Halkia;W;Greece;Athletics;Methyltrienolone;Beijing;2008
 Tony Andre Hansen;M;Norway;Equestrian;Capsaicin;Beijing;2008
 Kim Jong su;M;North Korea;Shooting;Propranolol;Beijing;2008
-Courtney King;M;United States;Equestrian;Felbinac;Beijing;2008
+Courtney King;M;United States of America;Equestrian;Felbinac;Beijing;2008
 Denis Lynch;M;Ireland;Equestrian;Capsaicin;Beijing;2008
 Maria Isabel Moreno;W;Spain;Cycling;EPO;Beijing;2008
 Vanja Perisic;W;Croatia;Athletics;CERA;Beijing;2008
@@ -111,7 +111,7 @@ Athanasia Tsoumeleka;W;Greece;Athletics;CERA;Beijing;2008
 Ghfran Almouhamad;M;Syria;Athletics;Methylhexaneamine;London;2012
 Victoria Baranova;W;Russia;Cycling;Male hormone testosterone;London;2012
 Kissya Cataldo;M;Brazil;Rowing;EPO;London;2012
-Nicholas Delpopolo;M;United States;Judo;Cannabis;London;2012
+Nicholas Delpopolo;M;United States of America;Judo;Cannabis;London;2012
 Luiza Galiulina;W;Uzbekistan;Gymnastics;Furosemide;London;2012
 Hassan Hirt;M;France;Athletics;EPO;London;2012
 Amine Lalu;M;Morocco;Athletics;Furosemide;London;2012
