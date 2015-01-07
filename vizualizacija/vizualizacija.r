@@ -15,13 +15,12 @@ svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthd
 OI <- merge(doping.ZOI, doping.POI, all = TRUE)
 
 
-#Mankajoce drzave
-manjkajoce <- c("Bahrain", "Monaco")
-drzave <- c(levels(factor(OI$Country)), manjkajoce)
+#Mankajoce drzave Bahrain, Monaco
+drzave <- c(levels(factor(OI$Country)))
 drzave <- drzave[drzave %in% svet$admin]
 nov.svet <- svet[match(drzave, svet$admin),]
-ostali.svet <- svet[-1*match(drzave, svet$admin),]
-cel.svet <- merge(nov.svet, ostali.svet, all=TRUE)
+
+
 m <- match(nov.svet$admin, drzave)
 
 enake <- factor(nov.svet$primeri)
@@ -33,24 +32,26 @@ svet$primeri[svet$admin %in% nov.svet$admin]<- data.frame(table(OI$Country[OI$Co
 spplot(svet, "primeri", col.regions = c("white", rainbow(13)))
 
 
-#POPRAVI!!!!!!!
 
 #tabela odvzetih medalj:
 medals <- merge(gold.medals, silver.medals, all = TRUE)
 medals <- merge(medals, bronze.medals, all = TRUE)
 medals$Country[medals$Athlete == "Ibragim Samadov"] <- "Russia"
 medals$Country[medals$Country == "United States"] <- "United States of America"
-ujemanje <- match(medals$Country, svet$admin)
+
+k <- match(levels(factor(medals$Country)), svet$admin)
 
 #izpustimo manjkajoce drzave
-medals <- medals[-1*c(which(is.na(ujemanje))),]
-ujemanje <- match(svet$admin, medals$Country)
+medals <- medals[medals$Country %in% svet$admin,]
+
+ujemanje <- match(svet$admin, levels(factor(medals$Country)))
 
 svet$odvzete.medalje <- c(0)
 odvzete.drzave <- levels(factor(medals$Country))
 odvzete.svet <- svet[which(!is.na(ujemanje)),]
-svet$odvzete.medalje[svet$admin %in% odvzete.svet$admin]<- data.frame(table(medals$Country))$Freq[which(!is.na(ujemanje))]
+svet$odvzete.medalje[which(!is.na(ujemanje))]<- data.frame(table(medals$Country))$Freq[ujemanje[which(!is.na(ujemanje))]]
 
+spplot(svet, "odvzete.medalje", col.regions = c("white", rainbow(15)))
 
 OI$host.country[OI$Place == "Munich"] <- "Germany"
 OI$host.country[OI$Place == "Salt Lake City"] <- "United States of America"
