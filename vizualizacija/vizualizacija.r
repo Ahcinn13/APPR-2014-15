@@ -15,23 +15,49 @@ svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthd
 OI <- merge(doping.ZOI, doping.POI, all = TRUE)
 
 
-#Mankajoce drzave Bahrain, Monaco
-drzave <- c(levels(factor(OI$Country)))
-drzave <- drzave[drzave %in% svet$admin]
-nov.svet <- svet[match(drzave, svet$admin),]
+#izpustimo manjkajoce drzave
+OI <- OI[OI$Country %in% svet$admin, ]
 
 
-m <- match(nov.svet$admin, drzave)
 
-enake <- factor(nov.svet$primeri)
+m <- match(svet$admin, levels(factor(OI$Country)))
+
+
 svet$primeri <- c(0)
-svet$primeri[svet$admin %in% nov.svet$admin]<- data.frame(table(OI$Country[OI$Country %in% drzave]))$Freq[m]
+svet$primeri[which(!is.na(m))]<- data.frame(table(OI$Country))$Freq[m[which(!is.na(m))]]
+nov.svet <- svet[svet$primeri !=0,]
+#svet$enake <- factor(svet$primeri)
 #spplot(svet, "primeri", col.regions = rainbow(12))
-#barve <- bpy.colors(length(levels(enake)))[enake]
+#barve <- bpy.colors(length(levels(svet$enake)))[svet$enake]
 #spplot(svet, "primeri", col.regions = barve)
-spplot(svet, "primeri", col.regions = c("white", rainbow(13)))
+#spplot(svet, "primeri", col.regions = c("white", rainbow(13)))
 
 
+
+
+
+#imena in koordinate 3 drzav(ZDA, RUS, BUL) z največ dopinskimi primeri na OI
+
+RUS <- which(svet$admin == "Russia")
+BUL <- which(svet$admin == "Bulgaria")
+ZDA <- which(svet$admin == "United States of America")
+vektor <- c(RUS, BUL, ZDA)
+koordinate <- coordinates(svet[vektor,])
+rownames(koordinate) <- svet[vektor,]$admin
+
+
+spplot(svet, "primeri", col.regions = c("white", rainbow(16, start=0, end=11/13)), 
+       main = "Stevilo dopinskih primerov po drzavah", 
+       sp.layout = list("sp.text", koordinate, svet[vektor,]$admin, cex=0.6),
+       par.settings = list(panel.background=list(col="lightblue")))
+
+nov.svet$substanca <- c("")
+#drzave s samo enim dopinškim primerom
+q <- nov.svet$admin[nov.svet$primeri ==1]
+q <- as.character(q)
+dr1 <- OI$Country[OI$Country %in% q]
+OI$Banned.substance[OI$Country %in% q]
+nov.svet$substance[match(dr1, nov.svet$admin)]<-OI$Banned.substance[OI$Country %in% q]
 
 #tabela odvzetih medalj:
 medals <- merge(gold.medals, silver.medals, all = TRUE)
@@ -51,7 +77,15 @@ odvzete.drzave <- levels(factor(medals$Country))
 odvzete.svet <- svet[which(!is.na(ujemanje)),]
 svet$odvzete.medalje[which(!is.na(ujemanje))]<- data.frame(table(medals$Country))$Freq[ujemanje[which(!is.na(ujemanje))]]
 
-spplot(svet, "odvzete.medalje", col.regions = c("white", rainbow(15)))
+
+
+#vekotr izpisanih drzave je isti kot v zgornjem primeru 
+
+spplot(svet, "odvzete.medalje", col.regions = c("white", rainbow(15, start=0, end = 10/12)),
+       main = "Stevilo odvzetih olimpijskih medalj zaradi dopinga",
+       sp.layout = list("sp.text", koordinate, svet[vektor,]$admin, cex=0.6),
+       par.settings = list(panel.background=list(col="lightblue")))
+       
 
 OI$host.country[OI$Place == "Munich"] <- "Germany"
 OI$host.country[OI$Place == "Salt Lake City"] <- "United States of America"
@@ -98,15 +132,7 @@ preuredi <- function(podatki, zemljevid) {
 }
 
 
-# OI <- merge(doping.ZOI, doping.POI, all = TRUE)
-# m <- match(OI$Country, svet$admin)
-# m <- m[which(!is.na(m))]
-# sss <- svet[m,]
-# brez <- OI$Country[c(-111, -116)]
-# beda <- data.frame(table(brez))
-# sss$zzz <- beda$Freq[m]
-# 
-# 
+ 
 # # Uvozimo zemljevid.
 # cat("Uvažam zemljevid...\n")
 # obcine <- uvozi.zemljevid("http://e-prostor.gov.si/fileadmin/BREZPLACNI_POD/RPE/OB.zip",
