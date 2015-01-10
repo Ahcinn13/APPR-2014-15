@@ -1,7 +1,5 @@
 # 3. faza: Izdelava zemljevida
 
-library(sp)
-library(maptools)
 
 # Uvozimo funkcijo za pobiranje in uvoz zemljevida.
 source("lib/uvozi.zemljevid.r")
