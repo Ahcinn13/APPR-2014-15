@@ -143,6 +143,10 @@ tabelabarv <- tabelabarv[qw,]
 legend("bottomleft", legend = levels(factor(svet$frekvence[svet$frekvence!= 0])),
        fill = c(as.character(tabelabarv$barva)), bg = "white")
 
-
+#Dodamo imena drzav
+#najprej poberemo iz zemljevida svet tiste države ki bi jih radi označili
+oznacene<-svet[c(9,28,31,136,169),]
+#dodamo imena na zemljevid
+text(coordinates(oznacene),labels=c("Avstralija","Kanada","Kitajska","Rusija","ZDA"),cex=0.55,col="black"
 
 dev.off()
