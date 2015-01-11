@@ -33,8 +33,8 @@ Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-V svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, preostali dve sem v Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Ostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem tudi olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v eni izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. 
-
+V svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, preostali dve sem v Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Ostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem tudi olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v eni izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. \\
+\\
 Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (5 stolpičnih, 2 tortna diagrama ter 1 graf).
 Program za risnje grafov sem napisala v datoteki grafi.r, ki sem ga shranila v mapo slike. Zaradi lažjega risanja grafov, sem na novo definirala nekaj funkcij, dodala novo tabelo oziroma novo spremenljivko.
 Na koncu pa sem vse grafe še izvozila v PDF datoteki.
@@ -48,20 +48,23 @@ Na koncu pa sem vse grafe še izvozila v PDF datoteki.
 V tretji fazi sem podatke, ki sem jih uvozila v prejšnji fazi prikazala na zemljevidu.
 V ta namen sem v R uvozila zemljevid sveta v obliki SHP.
 Prva težava na katero sem naletela v tej fazi, je bila ta, da dveh držav, za kateri sem uvozila podatke ni bilo na zemljevidu, tako da ju nisem mogla prikazati. 
-Preden sem se lotila risanja zemljevidov sem uredila podatke, tako da so se že prej uvoženi podatki ujemali z državami na zemljevidu sveta.
+Preden sem se lotila risanja zemljevidov sem uredila podatke, tako da so se že prej uvoženi podatki ujemali z državami na zemljevidu sveta.\\
+\\
 
 Narisala sem 4 zemljevide:
+\begin{itemize}
 
-1. Zemljevid prikazuje število dopingiranih športnikov iz posamezne države.
+\item{Zemljevid1 prikazuje število dopingiranih športnikov iz posamezne države.}
 
-2. Zemljevid prikazuje katero je najpogosteje uporabljeno nedovoljeno sredstvo v posamezni državi (imenska spremenljivka).
-Ker je moja baza podtakov relativno majhna, sem pri risanju tega zemljevida upoštevala zgolj države, v katerih je bilo vsaj 6 dopinških primerov. Podatki za ostale države se mi v tem primeru ocenila za nerelavantne.
 
-3. Zemljevid prikazuje število odvzetih medalj na Olimpijskih igrah, zaradi pozitivnega doping testa
+\item{Zemljevid2 prikazuje katero je najpogosteje uporabljeno nedovoljeno sredstvo v posamezni državi (imenska spremenljivka).
+Ker je moja baza podtakov relativno majhna, sem pri risanju tega zemljevida upoštevala zgolj države, v katerih je bilo vsaj 6 dopinških primerov. Podatki za ostale države se mi v tem primeru ocenila za nerelavantne.}
 
-4. Zemljevid prikazuj povprečno število dopinških primerov glede na državo, ki je gostila Olimpijske igre. 
-ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.
+\item{Zemljevid3 prikazuje število odvzetih medalj na Olimpijskih igrah, zaradi pozitivnega doping testa}
 
+\item{Zemljevid4 prikazuj povprečno število dopinških primerov glede na državo, ki je gostila Olimpijske igre. 
+ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.}\\
+\end{itemize}
 Na svoje zemljevide sem dodala nekaj oznak, vendar z njimi raje nisem pretiravala, saj bi s tem zemljevidi postali težje berljivi.\\
 \\
 Program za risanje zemljevidov sem napisala v datoteki vizualizacija.r, ki se nahaja v mapi vizualizacija. 
