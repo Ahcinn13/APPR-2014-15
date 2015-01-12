@@ -6,7 +6,7 @@ source("lib/uvozi.zemljevid.r")
 
 
 cat("Uvazam zemljevid... \n")
-pdf("slike/zemljevid.pdf")
+pdf("slike/zemljevidi.pdf")
 svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip", 
                         "zemljevid.sveta", "ne_110m_admin_0_countries.shp", mapa = "zemljevid",
                         encoding = "Windows-1250")
@@ -35,11 +35,13 @@ ZDA <- which(svet$admin == "United States of America")
 vektor <- c(RUS, ZDA)
 koordinate <- coordinates(svet[vektor,])
 rownames(koordinate) <- svet[vektor,]$admin
+row.names(koordinate)[row.names(koordinate)=="United States of America"]<- "USA"
+
 
 
 print(spplot(svet, "primeri", col.regions = c("white", rainbow(16, start=0, end=11/13)), 
        main = "Stevilo dopinskih primerov po drzavah", 
-       sp.layout = list("sp.text", koordinate, svet[vektor,]$admin, cex=0.8),
+       sp.layout = list("sp.text", koordinate, row.names(koordinate), cex=0.8),
        par.settings = list(panel.background=list(col="lightblue"))))
 
 
@@ -97,7 +99,7 @@ svet$odvzete.medalje[which(!is.na(ujemanje))]<- data.frame(table(medals$Country)
 
 print(spplot(svet, "odvzete.medalje", col.regions = c("white", rainbow(15, start=0, end = 10/12)),
        main = "Stevilo odvzetih olimpijskih medalj zaradi dopinga",
-       sp.layout = list("sp.text", koordinate, svet[vektor,]$admin, cex=0.8),
+       sp.layout = list("sp.text", koordinate, row.names(koordinate), cex=0.8),
        par.settings = list(panel.background=list(col="lightblue"))))
        
 
