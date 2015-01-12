@@ -6,7 +6,7 @@ source("lib/uvozi.zemljevid.r")
 
 
 cat("Uvazam zemljevid... \n")
-pdf("slike/zemljevidi.pdf")
+pdf("slike/zefewm.pdf")
 svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip", 
                         "zemljevid.sveta", "ne_110m_admin_0_countries.shp", mapa = "zemljevid",
                         encoding = "Windows-1250")
@@ -148,7 +148,9 @@ legend("bottomleft", legend = levels(factor(svet$frekvence[svet$frekvence!= 0]))
 #Dodamo imena drzav
 #najprej poberemo iz zemljevida svet tiste države ki bi jih radi označili
 oznacene<-svet[c(9,28,31,136,169),]
+koor <- coordinates(oznacene)
+koor[2,] <- coordinates(oznacene)[2,]+c(-13,0)
 #dodamo imena na zemljevid
-text(coordinates(oznacene),labels=c("Avstralija","Kanada","Kitajska","Rusija","ZDA"),cex=0.55,col="black")
+text(koor,labels=c("Avstralija","Kanada","Kitajska","Rusija","ZDA"),offset = 1, cex=0.5,col="black")
 
 dev.off()
