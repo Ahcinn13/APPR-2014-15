@@ -6,7 +6,7 @@ source("lib/uvozi.zemljevid.r")
 
 
 cat("Uvazam zemljevid... \n")
-pdf("slike/zefewm.pdf")
+pdf("slike/zemljevidi.pdf")
 svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip", 
                         "zemljevid.sveta", "ne_110m_admin_0_countries.shp", mapa = "zemljevid",
                         encoding = "Windows-1250")
