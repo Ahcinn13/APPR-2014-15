@@ -8,7 +8,7 @@ uvoz.doping <- function() {
 }
 
 # Zapišimo podatke v razpredelnico doping.data.
-cat("Uvazam podatke o stevilu dopinskih testov... \n")
+cat("Uvažam podatke o stevilu dopinskih testov... \n")
 doping.data <- uvoz.doping()
 
 names(doping.data) <- c("Year", "Sport", "Samples", "Total.findings", "procent.ofDopingCases")
