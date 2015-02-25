@@ -5,6 +5,9 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{pdfpages}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
 \pagestyle{plain}
 
 \begin{document}
@@ -15,7 +18,7 @@ Analiza podatkov s programom R}
 \newpage
 \section{Izbira teme}
 
-Tema mojega projekta je doping v športu. Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot so na primer: kako se je število dopingiranih športnikov v preteklosti spreminjalo, iz kje so prihajali, v katerih športih so se udejstvovali, katera tekmovanja (Olimpijske igre, svetovna prvenstva, Tour de France) so postregla z največ dopinškimi škandali, s katerimi nedovoljenimi sredstvi si športniki napogosteje pomagajo do čim boljšega rezultata.\\
+Tema mojega projekta je doping v športu. Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot so na primer: kako se je število dopingiranih športnikov v preteklosti spreminjalo, iz kje so prihajali, v katerih športih so se udejstvovali, katera tekmovanja (Olimpijske igre, svetovna prvenstva, Tour de France) so postregla z največ dopinškimi škandali, s katerimi nedovoljenimi sredstvi si športniki napogosteje pomagajo do čim boljšega rezultata.
 
 Podatke sem oziroma bom pridobila iz naslednjih spletnih virov:
  
@@ -39,7 +42,9 @@ Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (5 stolpičnih
 Program za risnje grafov sem napisala v datoteki grafi.r, ki sem ga shranila v mapo slike. Zaradi lažjega risanja grafov, sem na novo definirala nekaj funkcij, dodala novo tabelo oziroma novo spremenljivko.
 Na koncu pa sem vse grafe še izvozila v PDF datoteki.
 
-\includegraphics[width=\textwidth]{../slike/grafi.pdf}
+
+%\includepdf[pages={1-4}]{../slike/grafi.pdf}
+
 
 \newpage
 
@@ -70,7 +75,7 @@ Na zemljevide sem dodala nekaj oznak, vendar z njimi raje nisem pretiravala, saj
 Program za risanje zemljevidov sem napisala v datoteki vizualizacija.r, ki se nahaja v mapi vizualizacija. 
 Na koncu pa sem vse zemljevide še izvozila v PDF obliki in jih shranila v mapo slike.
 
-\includegraphics[width=\textwidth]{../slike/zemljevidi.pdf}
+%\includegraphics[width=\textwidth]{../slike/zemljevidi.pdf}
 
 \section{Napredna analiza podatkov}
 

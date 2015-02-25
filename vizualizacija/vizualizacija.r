@@ -5,8 +5,11 @@
 source("lib/uvozi.zemljevid.r")
 
 
-cat("Uvazam zemljevid... \n")
-pdf("slike/zemljevidi.pdf")
+cat("Uvažam zemljevid... \n")
+
+cairo_pdf("slike/graf.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
+#pdf("slike/zemljevidi.pdf")
 svet <- uvozi.zemljevid("http://www.naturalearthdata.com/http//www.naturalearthdata.com/download/110m/cultural/ne_110m_admin_0_countries.zip", 
                         "zemljevid.sveta", "ne_110m_admin_0_countries.shp", mapa = "zemljevid",
                         encoding = "Windows-1250")

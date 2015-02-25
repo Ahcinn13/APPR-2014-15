@@ -8,7 +8,7 @@ uvoz.doping <- function() {
 }
 
 # Zapišimo podatke v razpredelnico doping.data.
-cat("Uvažam podatke o stevilu dopinskih testov... \n")
+cat("Uvažam podatke o številu dopiških testov... \n")
 doping.data <- uvoz.doping()
 
 names(doping.data) <- c("Year", "Sport", "Samples", "Total.findings", "procent.ofDopingCases")
@@ -79,7 +79,7 @@ uvoz.zoi <- function() {
 
 
 # Zapišimo podtake v razpredelnico doping.ZOI.
-cat("Uvazam podatke o dopinskih primerih na zimskih Olimpijskih igrah... \n")
+cat("Uvažam podatke o dopinških primerih na zimskih Olimpijskih igrah... \n")
 doping.ZOI <- uvoz.zoi()
 
 names(doping.ZOI) <- c("Athlete", "Sex", "Country", "Sport",  "Banned.substance",	"Place",	"Year")
@@ -95,7 +95,7 @@ uvoz.poi <- function() {
 
 
 # Zapišimo podatke v razpredelnico doping.POI.
-cat("Uvazam podatke o dopinskih primerih na poletnih Olimpijskih igrah... \n")
+cat("Uvažam podatke o dopinških primerih na poletnih Olimpijskih igrah... \n")
 doping.POI <- uvoz.poi()
 
 names(doping.POI) <- c("Athlete", "Sex", "Country", "Sport",	"Banned.substance",	"Place",	"Year")
@@ -111,7 +111,7 @@ naslov = "http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals"
 stripped.medals <- htmlTreeParse(naslov, encoding = "UTF-8", useInternal = TRUE)
 
 stripped.medals<-readHTMLTable(naslov,which=1)
-cat("Uvazam podatke o odvzemu olimpijskih medalj... \n")
+cat("Uvažam podatke o odvzemu olimpijskih medalj... \n")
 
 
 # RAZPREDELNICA ODVZETIH ZLATIH OLIMPIJSKIH MEDALJ:
