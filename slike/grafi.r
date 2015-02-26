@@ -1,7 +1,7 @@
 #pdf("slike/graf.pdf", paper="a4")
 
 
-cairo_pdf("slike/gragfdfefegdfi.pdf", width = 9.27, height = 9.69,
+cairo_pdf("slike/gragfdfefebnhfdhtzrgdfi.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)
 
 year.place <- paste(doping.ZOI$Year, doping.ZOI$Place, sep="-")
@@ -9,7 +9,7 @@ year.place <- paste(doping.ZOI$Year, doping.ZOI$Place, sep="-")
 
 
 barplot(table(year.place), beside = TRUE, main = "DOPINŠKI PRIMERI NA ZIMSKIH OLIMPIJSKIH IGRAH", 
-        xlab="LETO IN KRAJ OLIMPIJSKIH IGER", cex.names = 0.5, ylab= "število dopinških primerov",
+        xlab="LETO IN KRAJ OLIMPIJSKIH IGER", cex.names = 0.65, ylab= "število dopinških primerov",
         col = c("lightblue", "mistyrose", "lightcyan","lavender", "cornsilk"), xlim=c(0,9))
 
 
@@ -17,7 +17,7 @@ barplot(table(year.place), beside = TRUE, main = "DOPINŠKI PRIMERI NA ZIMSKIH O
 year.place1 <- paste(doping.POI$Year, doping.POI$Place, sep="-")
 
 barplot(table(doping.POI$Year), beside = TRUE, main = "DOPINŠKI PRIMERI NA POLETNIH OLIMPIJSKIH IGRAH", 
-        xlab="LETO OLIMPIJSKIH IGER", cex.names = 0.5, ylab= "število dopinških primerov",
+        xlab="LETO OLIMPIJSKIH IGER", cex.names = 0.8, ylab= "število dopinških primerov",
         col = rainbow(12, start =0, end=5/8), xlim=c(0,13))
 
 
@@ -99,17 +99,28 @@ vsota2 <- function(vek) {
 vzorci <- vsota2(2003:2010)
 names(vzorci) <- c("leto", "Samples", "Total.findings")
 
-
-plot(c(2003,2010), c(min(vzorci[3]), max(vzorci[2])), type = "n",
+#število pozitivnih vzorcev
+plot(c(2003,2010), c(min(vzorci[3]), max(vzorci[3])), type = "n",
      xlab="Leto", ylab="število dopinških testov",
      main="šTEVILO DOPINšKIH TESTOV")
-lines(c(2003:2010), vzorci$Samples[vzorci$leto == c(2003:2010)], type="l", pch=20, col="magenta")
 lines(c(2003:2010), vzorci$Total.findings[vzorci$leto == c(2003:2010)], type="l", pch=20, col="blue")
 legend("topleft",
-       legend = c("število vseh vzorcev", "število pozitivnih vzorcev"),
-       col = c("magenta", "blue"),
-       lty = c("solid", "solid"),
-       pch = c(20, 20),
+       legend = c("število pozitivnih vzorcev"),
+       col = c("blue"),
+       lty = c("solid"),
+       pch = c(20),
+       bg = ("white"))
+
+#število vseh vzorcev
+plot(c(2003,2010), c(min(vzorci[2]), max(vzorci[2])), type = "n",
+     xlab="Leto", ylab="število dopinških testov"
+     )
+lines(c(2003:2010), vzorci$Samples[vzorci$leto == c(2003:2010)], type="l", pch=20, col="magenta")
+legend("topleft",
+       legend = c("število vseh vzorcev"),
+       col = c("magenta"),
+       lty = c("solid"),
+       pch = c(20),
        bg = ("white"))
 
 dev.off()
