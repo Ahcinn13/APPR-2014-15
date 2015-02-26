@@ -38,7 +38,8 @@ ZDA <- which(svet$admin == "United States of America")
 vektor <- c(RUS, ZDA)
 koordinate <- coordinates(svet[vektor,])
 rownames(koordinate) <- svet[vektor,]$admin
-row.names(koordinate)[row.names(koordinate)=="United States of America"]<- "USA"
+row.names(koordinate)[row.names(koordinate)=="United States of America"]<- "ZDA"
+row.names(koordinate)[row.names(koordinate)=="Russia"]<- "Rusija"
 
 
 
@@ -154,6 +155,6 @@ oznacene<-svet[c(9,28,31,136,169),]
 koor <- coordinates(oznacene)
 koor[2,] <- coordinates(oznacene)[2,]+c(-13,0)
 #dodamo imena na zemljevid
-text(koor,labels=c("Avstralija","Kanada","Kitajska","Rusija","ZDA"),offset = 1, cex=0.5,col="black")
+text(koor,labels=c("Avstralija","Kanada","Kitajska","Rusija","ZDA"),offset = 1, cex=0.8,col="black")
 
 dev.off()

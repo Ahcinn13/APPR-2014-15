@@ -1,7 +1,7 @@
 #pdf("slike/graf.pdf", paper="a4")
 
 
-cairo_pdf("slike/gragfdfefebnhfdhtzrgdfi.pdf", width = 9.27, height = 9.69,
+cairo_pdf("slike/gragfdfefebndfi.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)
 
 year.place <- paste(doping.ZOI$Year, doping.ZOI$Place, sep="-")
@@ -60,7 +60,7 @@ slo[slo == "Sailing"]<-"Jadranje"
 slo[slo == "Volleyball"]<-"Odbojka"
 
 
-barplot(table(slo), beside = TRUE, names.arg=c(""), main = "DOPINŠKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
+barplot(table(slo), beside = TRUE, names.arg=c(""), main = "DOPINŠKI PRIMERI NA POLETNIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
         xlab="ŠPORTNE PANOGE",cex.names=0.5,space = 0.2, ylab= "število dopinških primerov", 
         col = rainbow(15), xlim=c(0,19), ylim=c(0,45),
 legend = paste(names(table(slo)), table(slo), sep=" - "))
@@ -122,5 +122,16 @@ legend("topleft",
        lty = c("solid"),
        pch = c(20),
        bg = ("white"))
+
+#zlorabljene substance
+vek <- data.frame(table(OI$Banned.substance))$Freq !=1
+tabela <- table(OI$Banned.substance)[vek]
+
+barplot(tabela, beside = TRUE, names.arg=c(""), main = "GRAF ZLORAB  NEDOVOLJENIH POŽIVIL", 
+        xlab="prepovedana substanca",cex.names=0.5,space = 0.01, ylab= "število zlorab", 
+        col = rainbow(20), xlim=c(0,20), ylim=c(0,34),
+        legend = paste(names(tabela), tabela, sep=" - "))
+
+
 
 dev.off()

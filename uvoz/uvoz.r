@@ -200,6 +200,10 @@ bronze.medals$Event <- as.character(bronze.medals$Event)
 
 
 
+OI <- merge(doping.ZOI, doping.POI, all = TRUE)
+
+
+
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
