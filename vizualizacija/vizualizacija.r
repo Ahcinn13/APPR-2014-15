@@ -44,7 +44,7 @@ row.names(koordinate)[row.names(koordinate)=="Russia"]<- "Rusija"
 
 
 print(spplot(svet, "primeri", col.regions = c("white", rainbow(16, start=0, end=11/13)), 
-       main = "Stevilo dopinskih primerov po drzavah", 
+       main = "Število dopinških primerov po državah", 
        sp.layout = list("sp.text", koordinate, row.names(koordinate), cex=0.8),
        par.settings = list(panel.background=list(col="lightblue"))))
 
@@ -102,7 +102,7 @@ svet$odvzete.medalje[which(!is.na(ujemanje))]<- data.frame(table(medals$Country)
 #vekotr izpisanih drzave je isti kot v zgornjem primeru 
 
 print(spplot(svet, "odvzete.medalje", col.regions = c("white", rainbow(15, start=0, end = 10/12)),
-       main = "Stevilo odvzetih olimpijskih medalj zaradi dopinga",
+       main = "Število odvzetih olimpijskih medalj zaradi dopinga",
        sp.layout = list("sp.text", koordinate, row.names(koordinate), cex=0.8),
        par.settings = list(panel.background=list(col="lightblue"))))
        
@@ -141,7 +141,7 @@ svet$frek1 <- factor(svet$frekvence)
 barve1 <- topo.colors(length(levels(svet$frek1)))[svet$frek1]
 barve1[barve1 == "#4C00FFFF"]<-"white"
 plot(svet, col=barve1, bg = "lightblue")
-title("Povprecno stevilo dopinskih primerov na OI")
+title("Povprečno število dopinških primerov na OI")
 tabelabarv <- data.frame(svet$frekvence[svet$frekvence!= 0], barve1[svet$frekvence !=0])
 colnames(tabelabarv)<-c("stevilo", "barva")
 qw <- match(levels(factor(svet$frekvence[svet$frekvence!= 0])), tabelabarv$stevilo)
