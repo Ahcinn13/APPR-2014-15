@@ -203,6 +203,19 @@ bronze.medals$Event <- as.character(bronze.medals$Event)
 OI <- merge(doping.ZOI, doping.POI, all = TRUE)
 
 
+#Funkcija, ki uvozi podatke iz datoteke CPI2014_ResultsSpreadsheet.csv
+uvoz.CPI<- function() {
+  
+  return(read.table("podatki/CPI2014_ResultsSpreadsheet.csv", sep=";", skip = 3, na.strings = "-",
+                    fileEncoding = "Windows-1250"))
+}
+
+# Zapišimo podatke v razpredelnico CPI.
+cat("Uvažam podatke o CPI po državah... \n")
+CPI <- uvoz.CPI()
+CPI <- data.frame(CPI[2], CPI[3])
+names(CPI)<-c("Country", "CPI2014")
+
 
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
