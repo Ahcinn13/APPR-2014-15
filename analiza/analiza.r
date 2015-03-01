@@ -105,17 +105,102 @@ plot(korupcija$primeri, korupcija$technologija,
      xlim = c(1,15),
      xlab = "število dopinških primerov", 
      ylab = "tehnološki indeks", 
-     main="Povzeava med tehnologijo in dopingom")
-legend("topright",
+     main="Povzeava med tehnologijo in dopingom \n (model Loess)" )
+legend("bottomright",
        legend = c("Afrika", "Amerika", "Azija", "Australija", "Evropa"),
        col = barve,
        lty = c("solid"),
        pch = c(20),
        bg = ("white"))
 abline(h = 3, col = "black", lty = "dotted")
+r <- korupcija$primeri 
+MLS <- loess(korupcija$technologija ~ r)
+curve(predict(MLS, data.frame(r=x)), add = TRUE, col = "black")
+
+
 
 
 #modeli
+
+# Pomožna funkcija
+vsota2 <- function(VEK) {
+  z <- c()
+  b <- c()
+  for (i in VEK) {
+    y <- c(sum(doping.data$Samples[doping.data$Year == i]))
+    d <- c(sum(doping.data$Total.findings[doping.data$Year== i]))
+    z <- c(z,y)
+    b <- c(b,d)
+  }
+  return(data.frame(2003:2010,z,b))
+}
+
+vzorci <- vsota2(2003:2010)
+names(vzorci) <- c("leto", "Samples", "Total.findings")
+
+
+
+
+#število vseh vzorcev
+plot(c(2003,2010), c(min(vzorci[2]), max(vzorci[2])), main = "Spreminjanje števila dopinških testov", type = "n",
+     xlab="Leto", ylab="število dopinških testov"
+)
+lines(c(2003:2010), vzorci$Samples[vzorci$leto == c(2003:2010)], type="p", pch=20, col="black")
+
+
+#linearni model
+lin1 <- lm(vzorci$Samples[vzorci$leto == c(2003:2010)] ~ c(2003:2010))
+abline(lin1, col="blue")
+
+
+iks <- c(2003:2010)
+#nelinearni model
+kv1 <- lm(vzorci$Samples[vzorci$leto == c(2003:2010)] ~ I((iks)^2) + iks)
+curve(predict(kv1, data.frame(iks=x)), add = TRUE, col = "red")
+
+
+
+#loess model 
+mls1 <- loess(vzorci$Samples[vzorci$leto == c(2003:2010)] ~ iks)
+curve(predict(mls1, data.frame(iks=x)), add = TRUE, col = "orange")
+
+
+#ostanki
+ostanki1 <- sapply(list(lin1, kv1, mls1), function(x) sum(x$residuals^2))
+
+legend("bottomright", c("Linerana metoda", "Kvadratna metoda","Loess"),lty=c(1,1,1), col = c("blue","red","orange"))
+
+
+
+#število pozitivnih vzorcev
+plot(c(2003,2010), c(min(vzorci[3]), max(vzorci[3])), type = "n",
+     xlab="Leto", ylab="število pozitivnih vzorcev",
+     main="Spreminjanje števila pozitvnih dopinških testov")
+lines(c(2003:2010), vzorci$Total.findings[vzorci$leto == c(2003:2010)], type="p", pch=20, col="black")
+
+
+#linearni model
+lin <- lm(vzorci$Total.findings[vzorci$leto == c(2003:2010)] ~ c(2003:2010))
+abline(lin, col="blue")
+
+
+iks <- c(2003:2010)
+#nelinearni model
+kv <- lm(vzorci$Total.findings[vzorci$leto == c(2003:2010)] ~ I((iks)^2) + iks)
+curve(predict(kv, data.frame(iks=x)), add = TRUE, col = "red")
+
+
+
+#loess model 
+mls <- loess(vzorci$Total.findings[vzorci$leto == c(2003:2010)] ~ iks)
+curve(predict(mls, data.frame(iks=x)), add = TRUE, col = "orange")
+
+
+#ostanki
+ostanki <- sapply(list(lin, kv, mls), function(x) sum(x$residuals^2))
+
+legend("bottomright", c("Linerana metoda", "Kvadratna metoda","Loess"),lty=c(1,1,1), col = c("blue","red","orange"))
+
 
 
 
