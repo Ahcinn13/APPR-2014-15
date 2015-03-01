@@ -18,14 +18,21 @@ Analiza podatkov s programom R}
 \newpage
 \section{Izbira teme}
 
-V zadnjih letih smo bili priča, kar nekaj odmevnim dopinškim škandalom. V medijih so se pojavljala predvsem imena športnikov, kot so Lance Armstrong, Marion Jones, Asafa Powell, Tayson Gay, vendar pa vemo, da za tako organizirano dejavnostjo, kot je doping, stoji mnogo večje število ljudi: od zdravnikov, trenerjev, managerjev, sotekmovalcev do celotne ekipe in navsezadnje družine. Ker je doping postal eden izmed največjih problemov v svetu športa, sem za naslov svojega projekta izbrala doping v športu.
+V zadnjih letih smo bili priča, kar nekaj odmevnim dopinškim škandalom. V medijih so se pojavljala predvsem imena športnikov, kot so Lance Armstrong, Marion Jones, Asafa Powell, Tayson Gay, vendar pa vemo, da za tako organizirano dejavnostjo, kot je doping, stoji mnogo večje število ljudi: od zdravnikov, trenerjev, managerjev, sotekmovalcev do celotne ekipe in navsezadnje družine.
+\
+\\
+\\
+Ker je doping postal eden izmed največjih problemov v svetu športa, sem za naslov svojega projekta izbrala doping v športu.
 \newline
+\\
 Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot so na primer: kako se je število dopingiranih športnikov v preteklosti spreminjalo, iz kje so prihajali, katere športne panoge so postregla z največ dopinškimi škandali, s katerimi nedovoljenimi sredstvi si športniki napogosteje pomagajo do čim boljšega rezultata...
-
-
-Doping je ena iz med najbolj ražširjenih oblik korupcije v športu, zato so temu primerno mnogi podatki tudi prirejeni in zamolčani. Na podlagi tega sem se odločila, da se pri svojem projektu osredotočim predvsem na doping na Olimpijskih igrah. Olimpijske igre slovijo kot šprtna prireditev, ki poteka v duhu Fair play, zato se mi ti podatki zdijo tud najbolj relevantn.
-
-
+\
+\\
+\\
+Doping je ena iz med najbolj ražširjenih oblik korupcije v športu, zato so temu primerno mnogi podatki tudi prirejeni in zamolčani. Na podlagi tega sem se odločila, da se pri svojem projektu osredotočim predvsem na doping na Olimpijskih igrah. Olimpijske igre slovijo kot šprtna prireditev, ki poteka v duhu Fair play, zato se mi ti podatki zdijo tud najbolj relavantni in objektivni.
+\
+\\
+\\
 Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem pa pridobiti pozitivno oceno pri predmetu ANPP.
 
 \newpage
@@ -63,9 +70,12 @@ Na podlagi tabele \verb|doping.data| sem sestavila tabelo \verb|dopingBySports|,
 
 \end{enumerate}
 
+\newpage
 \
 \\
 Tabela \verb|doping.POI|:
+\
+\\
 V program sem jo uvozila kot CSV datoteko. V tabeli so predstavljeni podatki o dopingu na poletnih OI.
 Sestavljena je iz 123 opazovanj in 7 spremenljivk:.
 \begin{enumerate}
@@ -81,6 +91,8 @@ Sestavljena je iz 123 opazovanj in 7 spremenljivk:.
 \
 \\
 Tabela \verb|doping.ZOI|:
+\
+\\
 V program sem jo uvozila kot CSV datoteko. V tabeli so predstavljeni podatki o dopingu na zimskih OI.
 Sestavljena je iz 22 opazovanj in 7 spremenljivk:.
 \begin{enumerate}
@@ -97,7 +109,9 @@ Sestavljena je iz 22 opazovanj in 7 spremenljivk:.
 \
 \\
 Tabela \verb|bronze.medals|(odvzete bronaste medalje, zaradi dopinga):
-V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}
+\
+\\
+V program sem jo uvozila kot html tabelo iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}.
 Sestavljena je iz 20 opazovanj in 3 spremenljivk:.
 \begin{enumerate}
 \item{\verb|Athlete| (imenska spremenljivka)}
@@ -109,7 +123,9 @@ Sestavljena je iz 20 opazovanj in 3 spremenljivk:.
 \
 \\
 Tabela \verb|gold.medals| (odvzete zlate medalje, zaradi dopinga):
-V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}
+\
+\\
+V program sem jo uvozila kot html tabelo iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}.
 Sestavljena je iz 29 opazovanj in 3 spremenljivk:.
 \begin{enumerate}
 \item{\verb|Athlete| (imenska spremenljivka)}
@@ -118,11 +134,13 @@ Sestavljena je iz 29 opazovanj in 3 spremenljivk:.
 
 \end{enumerate}
 
-\pagebreak
+
 \
 \\
 Tabela \verb|silver.medals| (odvzete srebrne medalje, zaradi dopinga):
-V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}
+\
+\\
+V program sem jo uvozila kot html tabelo iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}.
 Sestavljena je iz 14 opazovanj in 3 spremenljivk:.
 \begin{enumerate}
 \item{\verb|Athlete| (imenska spremenljivka)}
@@ -133,6 +151,8 @@ Sestavljena je iz 14 opazovanj in 3 spremenljivk:.
 \
 \\
 Tabela \verb|CPI|:
+\
+\\
 V program sem jo uvozila kot CSV datoteko. V tabeli so predstavljeni indeksi korupcije v posameznih državah.
 Sestavljena je iz 174 opazovanj in 2 spremenljivk:
 \begin{enumerate}
@@ -143,7 +163,9 @@ Sestavljena je iz 174 opazovanj in 2 spremenljivk:
 \
 \\
 Tabela \verb|technology|:
-V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://www.nationmaster.com/country-info/stats/Economy/Technology-index}.
+\
+\\
+V program sem jo uvozila kot html tabelo iz spletene strani \url{http://www.nationmaster.com/country-info/stats/Economy/Technology-index}.
 V tabeli so predstavljeni tehnološki indeksi v posameznih državah.
 Sestavljena je iz 109 opazovanj in 4 spremenljivk:
 \begin{enumerate}
@@ -169,7 +191,10 @@ V vsaki izmed naštetih tabeli sem preverila tipe spremenljivk ter ga po potrebi
 \section{Analiza in vizualizacija podatkov}
 
 Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (6 stolpičnih, 2 tortna diagrama).
-Program za risnje grafov sem napisala v datoteki \verb|grafi.r|, ki sem ga shranila v mapo \verb|slike|. Zaradi lažjega risanja grafov, sem na novo definirala nekaj spremenljivk, funkcij in pomožnih tabel.
+Program za risnje grafov sem napisala v datoteki \verb|grafi.r|, ki sem ga shranila v mapo \verb|slike|.
+\
+\\
+Zaradi lažjega risanja grafov, sem na novo definirala nekaj spremenljivk, funkcij in pomožnih tabel.
 \
 \\
 \begin{itemize}
@@ -181,7 +206,7 @@ Program za risnje grafov sem napisala v datoteki \verb|grafi.r|, ki sem ga shran
 INTERPRETACIJA:
 \\
 \verb|Graf 1| prikazuje število dopinških primerov na posameznih zimskih Olimpijskih igrah. Očitno je, da izstopajo Olimpijske igre v Salt Lake Cityju - 2002 in igre v Sochiju - 2014.
-
+\pagebreak
 \
 \item{\verb|Graf 2|:}
 
@@ -330,7 +355,12 @@ Ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bo
 
 \section{Napredna analiza podatkov}
 
+Program za napredno analizo podatkov je napisan v skripti \verb|analiza.r|, ki je shranjena v mapi \verb|analiza|.
+\
+\\
+\\
 Ker je doping, zgolj ena izmed oblik korupcije, je bila moja prva ideja, da število dopinških primerv v posmeznih državah primerjam z njihovim indeksom korupcija. 
+\\
 \\
 Vendar pa, kot je iz spodnjega grafa očitno, je bila moja domneva napačna. Med indeksom korupcije in številom dopinških primerov ni nobene vidnejše povezave.
 \\
@@ -339,9 +369,10 @@ Vendar pa, kot je iz spodnjega grafa očitno, je bila moja domneva napačna. Med
 \includegraphics[width=\textwidth]{../slike/napredna_analiza/1.pdf}
 }
 
+\newpage
 \
 \\
-Na podalgi zgornjega grafa sem opazila, da je doping najbolj razširjen med Evropskimi državami. Če izuzamemo Združene države Amerike, je zgolj v Evropski državah število dopinških primerov večje ali enako 4. Slednja ugotovitev pa je razvidna tudi iz dendrograma na naslednji strani.
+Na podalgi zgornjega grafa sem opazila, da je doping najbolj razširjen med Evropskimi državami. Če izuzamemo Združene države Amerike, je zgolj v Evropski državah število dopinških primerov večje ali enako 4. Slednja ugotovitev pa je razvidna tudi iz spodnjega dendrograma.
 
 \makebox[\textwidth][c]{
 \includegraphics[width=\textwidth]{../slike/napredna_analiza/2.pdf}
@@ -350,7 +381,11 @@ Na podalgi zgornjega grafa sem opazila, da je doping najbolj razširjen med Evro
 \
 \pagebreak
 \\
-V spodnjem grafu sem predstavila povezavo med tehnološkim indeksom in številom dopinških primerov. Vidimo da imajo praktično vse države sorazmerno visok tehnološki indeks, zgolj 5 držav ima indeks manjši od 3. Na tem grafu pa sem uporabila tudi funkcijo \verb|loess|. S pomočjo \verb|loess| modela sem prišla do ugotovitve, da ima večina držav, v katerih je prisoten doping, tehnološki indeks med 4 in 5.
+V spodnjem grafu sem predstavila povezavo med tehnološkim indeksom in številom dopinških primerov. Vidimo da imajo praktično vse države sorazmerno visok tehnološki indeks, zgolj 5 držav ima indeks manjši od 3.
+\
+\\
+\\
+Na tem grafu pa sem uporabila tudi funkcijo \verb|loess|. S pomočjo \verb|loess| modela sem prišla do ugotovitve, da ima večina držav, v katerih je prisoten doping, tehnološki indeks med 4 in 5.
 \\
 \\
 
@@ -360,9 +395,13 @@ V spodnjem grafu sem predstavila povezavo med tehnološkim indeksom in številom
 \
 \pagebreak
 \\
-Ker pa sem želela dobiti tudi širši vpogled v svet dopinga, sem za podatke o številu dopinških testov (od leta 2003 do leta 2010) narisala 3 krivulje, ki se najbolje prilegajo danim podatkom.
+In še nekoliko širši vpogled v svet dopinga:
 \
-
+\\
+Za podatke o številu vseh dopinških testov od leta 2003 do leta 2010 sem narisala 3 krivulje, ki se najbolje prilegajo danim podatkom.
+\
+\\
+\\
 
 \makebox[\textwidth][c]{
 \includegraphics[width=\textwidth]{../slike/napredna_analiza/4.pdf}
@@ -371,6 +410,7 @@ Ker pa sem želela dobiti tudi širši vpogled v svet dopinga, sem za podatke o 
 \pagebreak
 
 \
+\\
 Ter še zadnji graf, ki ponazarja število pozitivnih dopinških testov od leta 2003 do leta 2010. Vidimo, da je bilo največ pozitivnih vzorcev odvzetih med letoma 2008 in 2009.
 \\
 \\
