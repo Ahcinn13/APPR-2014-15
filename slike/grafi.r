@@ -1,5 +1,3 @@
-#pdf("slike/graf.pdf", paper="a4")
-
 
 cairo_pdf("slike/graf.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)

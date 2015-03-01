@@ -187,17 +187,5 @@ ostanki <- sapply(list(lin, kv, mls), function(x) sum(x$residuals^2))
 legend("bottomright", c("Linerana metoda", "Kvadratna metoda","Loess"),lty=c(1,1,1), col = c("blue","red","orange"))
 
 
-
-
-
-
 dev.off()
-
-
-
-
-
-
-
-
 
