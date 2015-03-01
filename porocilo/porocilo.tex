@@ -26,16 +26,6 @@ Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot 
 Doping je ena iz med najbolj ražširjenih oblik korupcije v športu, zato so temu primerno mnogi podatki tudi prirejeni in zamolčani. Na podlagi tega sem se odločila, da se pri svojem projektu osredotočim predvsem na doping na Olimpijskih igrah. Olimpijske igre slovijo kot šprtna prireditev, ki poteka v duhu Fair play, zato se mi ti podatki zdijo tud najbolj relevantn.
 
 
-% Podatke sem oziroma bom pridobila iz naslednjih spletnih virov:
-%  
-% \begin{itemize} 
-% \item \url{http://en.wikipedia.org/wiki/Doping_at_the_Olympic_Games}
-% \item \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_athletics}
-% \item \url{http://sportsanddrugs.procon.org/view.resource.php?resourceID=004420}
-% \item \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_sport}
-% \item \url{www.huffingtonpost.com/2014/02/16/olympics-drug-testing-medals-stripped_n_4789565.html}
-% \item \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}\\
-% \end{itemize}
 Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem pa pridobiti pozitivno oceno pri predmetu ANPP.
 
 \newpage
@@ -335,13 +325,61 @@ INTERPRETACIJA:
 Ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.
 \end{itemize}
 
+\
+\pagebreak
 
+\section{Napredna analiza podatkov}
 
+Ker je doping, zgolj ena izmed oblik korupcije, je bila moja prva ideja, da število dopinških primerv v posmeznih državah primerjam z njihovim indeksom korupcija. 
+\\
+Vendar pa, kot je iz spodnjega grafa očitno, je bila moja domneva napačna. Med indeksom korupcije in številom dopinških primerov ni nobene vidnejše povezave.
+\\
+\\
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/napredna_analiza/1.pdf}
+}
 
+\
+\\
+Na podalgi zgornjega grafa sem opazila, da je doping najbolj razširjen med Evropskimi državami. Če izuzamemo Združene države Amerike, je zgolj v Evropski državah število dopinških primerov večje ali enako 4. Slednja ugotovitev pa je razvidna tudi iz dendrograma na naslednji strani.
 
-% 
-% \section{Napredna analiza podatkov}
-% 
-% %\includegraphics{../slike/naselja.pdf}
-% 
- \end{document}
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/napredna_analiza/2.pdf}
+}
+
+\
+\pagebreak
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/napredna_analiza/3.pdf}
+}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/napredna_analiza/4.pdf}
+}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/napredna_analiza/5.pdf}
+}
+
+\newpage
+\begin{thebibliography}{4}
+\bibitem{1}
+  \url{http://en.wikipedia.org/wiki/Doping_at_the_Olympic_Games}\\
+  {Accessed: 28-02-2015}
+\bibitem{2}
+  \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_athletics}\\
+  {Accessed: 28-02-2015}
+\bibitem{3}
+  \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}\\
+  {Accessed: 28-02-2015}
+\bibitem{4}
+  \url{www.huffingtonpost.com/2014/02/16/olympics-drug-testing-medals-stripped_n_4789565.html}\\
+  {Accessed: 28-02-2015}
+\bibitem{5}
+  \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_sport}
+ 
+
+\end{thebibliography}
+
+\end{document}
