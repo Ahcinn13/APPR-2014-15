@@ -115,6 +115,9 @@ legend("topright",
 abline(h = 3, col = "black", lty = "dotted")
 
 
+#modeli
+
+
 
 
 
