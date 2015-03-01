@@ -224,7 +224,7 @@ naslov = "http://www.nationmaster.com/country-info/stats/Economy/Technology-inde
 
 technology <- htmlTreeParse(naslov, encoding = "UTF-8", useInternal = TRUE)
 technology <- readHTMLTable(naslov,which=1)
-
+technology <- technology[-5]
 
 
 
