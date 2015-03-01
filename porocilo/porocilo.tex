@@ -165,22 +165,22 @@ Sestavljena je iz 109 opazovanj in 4 spremenljivk:
 \end{enumerate}
 \
 \\
-V vsaki izmed naštetih tabeli sem preverila tipe spremenljivk ter ga po potrebi spremenila. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. \\
+V vsaki izmed naštetih tabeli sem preverila tipe spremenljivk ter ga po potrebi spremenila. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove.
 \\
 
 
-% 
-% 
-% %\includepdf[pages={1-4}]{../slike/grafi.pdf}
-% 
-% 
+
+
+%\includepdf[pages={1-4}]{../slike/grafi.pdf}
+
+
 \newpage
 
 \section{Analiza in vizualizacija podatkov}
 
 Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (6 stolpičnih, 2 tortna diagrama).
 Program za risnje grafov sem napisala v datoteki \verb|grafi.r|, ki sem ga shranila v mapo \verb|slike|. Zaradi lažjega risanja grafov, sem na novo definirala nekaj spremenljivk, funkcij in pomožnih tabel.
-\\
+\
 \\
 \begin{itemize}
 \item{\verb|Graf 1|:}
@@ -269,36 +269,76 @@ INTERPRETACIJA:
 \verb|Graf 8| prikazuje število odvzetih olimpijskih medalj zaradi dopinga.
 \end{itemize}
 
+\
+\pagebreak
+\\
+V tretji fazi pa sem uvožene podatke prikazala tudi na zemljevidu.
+\\
+\\
+Program za risanje zemljevidov sem napisala v datoteki \verb|vizualizacija.r|, ki se nahaja v mapi \verb|vizualizacija|.
+V ta namen sem v \verb|R| uvozila zemljevid sveta v obliki SHP.
+\\
+\\
+Prva težava na katero sem naletela v tej fazi, je bila ta, da dveh držav, za kateri sem uvozila podatke ni bilo na zemljevidu, tako da ju nisem mogla prikazati.
+\\
+Preden sem se lotila risanja zemljevidov sem uredila podatke, tako da so se že prej uvoženi podatki ujemali z državami na zemljevidu sveta. Za ujemanje držav je bilo nekatere podatke potrebno tudi spremeniti oziroma nekoliko popraviti (npr.: Great Britain - United Kingdom, West Gemrany - Germany Soviet Union - Russia).
+\\
+\\
+Na zemljevide sem dodala tudi nekaj oznak, vendar z njimi raje nisem pretiravala, saj bi s tem zemljevidi postali težje berljivi.
+\
+\pagebreak
+
+Narisala sem 4 zemljevide:
+\begin{itemize}
+
+\item{\verb|Zemljevid 1|:}
+
+\includegraphics[width=\textwidth]{../slike/zemljevidi/1.pdf}
+
+INTERPRETACIJA:
+\\
+\verb|Zemljevid 1| prikazuje število dopingiranih športnikov iz posamezne države. Največ dopingiranih športnikov prihaja iz Rusije (13) in Združenih držav Amerike (12). Dani rezultati so me rahlo presenetili, saj vemo, da je bil v času Vzhodne Nemčije dopingiran praktično vsak športnik. 
+\
+\pagebreak
+\item{\verb|Zemljevid 2|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/zemljevidi/2.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Zemljevid 2| prikazuje, katero je najpogosteje uporabljeno nedovoljeno sredstvo v posamezni državi (imenska spremenljivka).
+Ker je moja baza podtakov relativno majhna, sem pri risanju tega zemljevida upoštevala zgolj države, v katerih je bilo vsaj 6 dopinških primerov. Podatke za ostale države sem ocenila za nerelavantne.
+
+
+\
+\pagebreak
+\item{\verb|Zemljevid 3|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/zemljevidi/3.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Zemljevid 3| prikazuje število odvzetih medalj na Olimpijskih igrah, zaradi pozitivnega doping testa.
+
+\
+\pagebreak
+\item{\verb|Zemljevid 4|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/zemljevidi/4.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Zemljevid 4| prikazuje povprečno število dopinških primerov glede na državo, ki je gostila Olimpijske igre. 
+Ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.
+\end{itemize}
 
 
 
-% 
-% V tretji fazi sem podatke, ki sem jih uvozila v prejšnji fazi prikazala na zemljevidu.
-% V ta namen sem v R uvozila zemljevid sveta v obliki SHP.
-% Prva težava na katero sem naletela v tej fazi, je bila ta, da dveh držav, za kateri sem uvozila podatke ni bilo na zemljevidu, tako da ju nisem mogla prikazati. 
-% Preden sem se lotila risanja zemljevidov sem uredila podatke, tako da so se že prej uvoženi podatki ujemali z državami na zemljevidu sveta.za ujemanje držav je bilo nekatere podatke potrebno tudi spremeniti oziroma nekoliko popraviti (npr.: Great Britain - United Kingdom, West Gemrany - Germany Soviet Union - Russia)\\
-% \\
-% 
-% Narisala sem 4 zemljevide:
-% \begin{itemize}
-% 
-% \item{Zemljevid1 prikazuje število dopingiranih športnikov iz posamezne države.}
-% 
-% 
-% \item{Zemljevid2 prikazuje katero je najpogosteje uporabljeno nedovoljeno sredstvo v posamezni državi (imenska spremenljivka).
-% Ker je moja baza podtakov relativno majhna, sem pri risanju tega zemljevida upoštevala zgolj države, v katerih je bilo vsaj 6 dopinških primerov. Podatke za ostale države sem ocenila za nerelavantne.}
-% 
-% \item{Zemljevid3 prikazuje število odvzetih medalj na Olimpijskih igrah, zaradi pozitivnega doping testa}
-% 
-% \item{Zemljevid4 prikazuj povprečno število dopinških primerov glede na državo, ki je gostila Olimpijske igre. 
-% Ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.}\\
-% \end{itemize}
-% Na zemljevide sem dodala nekaj oznak, vendar z njimi raje nisem pretiravala, saj bi s tem zemljevidi postali težje berljivi.\\
-% \\
-% Program za risanje zemljevidov sem napisala v datoteki vizualizacija.r, ki se nahaja v mapi vizualizacija. 
-% Na koncu pa sem vse zemljevide še izvozila v PDF obliki in jih shranila v mapo slike.
-% 
-% %\includegraphics[width=\textwidth]{../slike/zemljevidi.pdf}
+
+
 % 
 % \section{Napredna analiza podatkov}
 % 
