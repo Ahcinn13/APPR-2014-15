@@ -217,6 +217,18 @@ CPI <- data.frame(CPI[2], CPI[3])
 names(CPI)<-c("Country", "CPI2014")
 
 
+#Uvoz tabele iz spletne strani: tehnološki indeks iz leta 2005
+
+cat("Uvažam podatke o tehnološkem indeksu... \n")
+naslov = "http://www.nationmaster.com/country-info/stats/Economy/Technology-index"
+
+technology <- htmlTreeParse(naslov, encoding = "UTF-8", useInternal = TRUE)
+technology <- readHTMLTable(naslov,which=1)
+
+
+
+
+
 # Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
 # potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
 # datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
