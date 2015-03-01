@@ -72,7 +72,7 @@ cairo_pdf("slike/napredna_analiza/2.pdf", width = 9.27, height = 9.69,
 row.names(korupcija)<- korupcija$drzave
 X <- scale(as.matrix(korupcija[c(2:2)]))
 t <- hclust(dist(X), method = "ward.D")
-plot(t, hang=-1, cex=0.4, main = "Gručenje glede na število dopinških primerov")
+plot(t, hang=-1, cex=0.4, ylab="", main = "Gručenje glede na število dopinških primerov")
 legend("topleft", c("Skupina 1", "Skupina 2","Skupina 3","Skupina 4"),lty=c(1,1,1), col = c("red", "blue", "magenta", "orange"))
 rect.hclust(t,k=4,border=c("red", "blue", "magenta", "orange"))
 
