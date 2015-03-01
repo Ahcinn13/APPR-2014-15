@@ -18,67 +18,290 @@ Analiza podatkov s programom R}
 \newpage
 \section{Izbira teme}
 
-Tema mojega projekta je doping v športu. Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot so na primer: kako se je število dopingiranih športnikov v preteklosti spreminjalo, iz kje so prihajali, v katerih športih so se udejstvovali, katera tekmovanja (Olimpijske igre, svetovna prvenstva, Tour de France) so postregla z največ dopinškimi škandali, s katerimi nedovoljenimi sredstvi si športniki napogosteje pomagajo do čim boljšega rezultata.
+V zadnjih letih smo bili priča, kar nekaj odmevnim dopinškim škandalom. V medijih so se pojavljala predvsem imena športnikov, kot so Lance Armstrong, Marion Jones, Asafa Powell, Tayson Gay, vendar pa vemo, da za tako organizirano dejavnostjo, kot je doping, stoji mnogo večje število ljudi: od zdravnikov, trenerjev, managerjev, sotekmovalcev do celotne ekipe in navsezadnje družine. Ker je doping postal eden izmed največjih problemov v svetu športa, sem za naslov svojega projekta izbrala doping v športu.
+\newline
+Osnovna ideja projekta je analiza podatkov in različnih vrst spremenljivk, kot so na primer: kako se je število dopingiranih športnikov v preteklosti spreminjalo, iz kje so prihajali, katere športne panoge so postregla z največ dopinškimi škandali, s katerimi nedovoljenimi sredstvi si športniki napogosteje pomagajo do čim boljšega rezultata...
 
-Podatke sem oziroma bom pridobila iz naslednjih spletnih virov:
- 
-\begin{itemize} 
-\item \url{http://en.wikipedia.org/wiki/Doping_at_the_Olympic_Games}
-\item \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_athletics}
-\item \url{http://sportsanddrugs.procon.org/view.resource.php?resourceID=004420}
-\item \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_sport}
-\item \url{www.huffingtonpost.com/2014/02/16/olympics-drug-testing-medals-stripped_n_4789565.html}
-\item \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}\\
-\end{itemize}
+
+Doping je ena iz med najbolj ražširjenih oblik korupcije v športu, zato so temu primerno mnogi podatki tudi prirejeni in zamolčani. Na podlagi tega sem se odločila, da se pri svojem projektu osredotočim predvsem na doping na Olimpijskih igrah. Olimpijske igre slovijo kot šprtna prireditev, ki poteka v duhu Fair play, zato se mi ti podatki zdijo tud najbolj relevantn.
+
+
+% Podatke sem oziroma bom pridobila iz naslednjih spletnih virov:
+%  
+% \begin{itemize} 
+% \item \url{http://en.wikipedia.org/wiki/Doping_at_the_Olympic_Games}
+% \item \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_athletics}
+% \item \url{http://sportsanddrugs.procon.org/view.resource.php?resourceID=004420}
+% \item \url{http://en.wikipedia.org/wiki/List_of_doping_cases_in_sport}
+% \item \url{www.huffingtonpost.com/2014/02/16/olympics-drug-testing-medals-stripped_n_4789565.html}
+% \item \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}\\
+% \end{itemize}
 Cilj projekta je spoznati program R skozi analizo in obdevalo podtakov, predvsem pa pridobiti pozitivno oceno pri predmetu ANPP.
 
 \newpage
 
 \section{Obdelava, uvoz in čiščenje podatkov}
 
-V svoj program sem uvozila 3 tabele CSV oblike. Eno sem našla na spletu, preostali dve sem v Excellu napisala sama s pomočjo različnih spletnih virov, ju pretvorila v CSV obliko ter ju nato uvzila v projekt. Ostale 3 tabele sem naredila s preoblikovanjem html tabele, ki sem jo uvzila s spletne strani. Ker so se mi pri uvozu html tabele nekateri stolpci med seboj pomešali, sem iz ene tabele naredila tri manjše podtabele, s tem pa sem tudi olajšala nadaljno obdelava podatkov. V vsaki tabeli sem preverila tip spremenljivk, ga po potrebi spremenila, v eni izmed tabel pa sem tudi dodala novo urejenostno spremenljivko. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. \\
+Program za obdelavo, uvoz in čiščenje podatkov je napisan v datotetki \verb|uvoz.r|, ki je shranjena v mapi \verb|uvoz|.
 \\
-Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (5 stolpičnih, 2 tortna diagrama ter 1 graf).
-Program za risnje grafov sem napisala v datoteki grafi.r, ki sem ga shranila v mapo slike. Zaradi lažjega risanja grafov, sem na novo definirala nekaj funkcij, dodala novo tabelo oziroma novo spremenljivko.
-Na koncu pa sem vse grafe še izvozila v PDF datoteki.
+\\
+V svoj program sem uvozila naslednje table:
+\\
+\\
+Tabela \verb|doping.data|:
+\\
+V program sem jo uvzila kot CSV datoteko. Vsebuje podatke o številu dopinških testov in pozitivnih vzorcih.
+Sestavljena je iz 297 opazovanj in 5 spremenljivk
+\begin{enumerate}
+\item{\verb|Year| (številska spremenljivka)}
+\item{\verb|Sport| (imenska spremenljivka)}
+\item{\verb|Samples| (številska spremenljivka)}
+\item{\verb|Total.findings| (številska spremenljivka)}
+\item{\verb|procent.ofDopingCases| (številska spremenljivka)}
+
+\end{enumerate}
+
+\
+\\
+Na podlagi tabele \verb|doping.data| sem sestavila tabelo \verb|dopingBySports|, ki je sestavljena iz 39 opazovanj in 3 spremeljivk:
+\begin{enumerate}
+
+\item{\verb|Sport| (imenska spremenljivka)}
+\item{\verb|Average| (številska spremenljivka)}
+\item{\verb|Number.ofDopingCases| (urejenostna spremenljivka)}
 
 
-%\includepdf[pages={1-4}]{../slike/grafi.pdf}
+\end{enumerate}
+
+\
+\\
+Tabela \verb|doping.POI|:
+V program sem jo uvozila kot CSV datoteko. V tabeli so predstavljeni podatki o dopingu na poletnih OI.
+Sestavljena je iz 123 opazovanj in 7 spremenljivk:.
+\begin{enumerate}
+\item{\verb|Athlete| (imenska spremenljivka)}
+\item{\verb|Sex| (imenska spremenljivka)}
+\item{\verb|Country| (imenska spremenljivka)}
+\item{\verb|Sport| (imenska spremenljivka)}
+\item{\verb|Banned.substance| (imenska spremenljivka)}
+\item{\verb|Place| (imenska spremenljivka)}
+\item{\verb|Year| (številska spremenljivka)}
+
+\end{enumerate}
+\
+\\
+Tabela \verb|doping.ZOI|:
+V program sem jo uvozila kot CSV datoteko. V tabeli so predstavljeni podatki o dopingu na zimskih OI.
+Sestavljena je iz 22 opazovanj in 7 spremenljivk:.
+\begin{enumerate}
+\item{\verb|Athlete| (imenska spremenljivka)}
+\item{\verb|Sex| (imenska spremenljivka)}
+\item{\verb|Country| (imenska spremenljivka)}
+\item{\verb|Sport| (imenska spremenljivka)}
+\item{\verb|Banned.substance| (imenska spremenljivka)}
+\item{\verb|Place| (imenska spremenljivka)}
+\item{\verb|Year| (številska spremenljivka)}
+
+\end{enumerate}
+
+\
+\\
+Tabela \verb|bronze.medals|(odvzete bronaste medalje, zaradi dopinga):
+V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}
+Sestavljena je iz 20 opazovanj in 3 spremenljivk:.
+\begin{enumerate}
+\item{\verb|Athlete| (imenska spremenljivka)}
+\item{\verb|Country| (imenska spremenljivka)}
+\item{\verb|Event| (imenska spremenljivka)}
+
+\end{enumerate}
+
+\
+\\
+Tabela \verb|gold.medals| (odvzete zlate medalje, zaradi dopinga):
+V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}
+Sestavljena je iz 29 opazovanj in 3 spremenljivk:.
+\begin{enumerate}
+\item{\verb|Athlete| (imenska spremenljivka)}
+\item{\verb|Country| (imenska spremenljivka)}
+\item{\verb|Event| (imenska spremenljivka)}
+
+\end{enumerate}
+
+\pagebreak
+\
+\\
+Tabela \verb|silver.medals| (odvzete srebrne medalje, zaradi dopinga):
+V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://en.wikipedia.org/wiki/List_of_stripped_Olympic_medals}
+Sestavljena je iz 14 opazovanj in 3 spremenljivk:.
+\begin{enumerate}
+\item{\verb|Athlete| (imenska spremenljivka)}
+\item{\verb|Country| (imenska spremenljivka)}
+\item{\verb|Event| (imenska spremenljivka)}
+
+\end{enumerate}
+\
+\\
+Tabela \verb|CPI|:
+V program sem jo uvozila kot CSV datoteko. V tabeli so predstavljeni indeksi korupcije v posameznih državah.
+Sestavljena je iz 174 opazovanj in 2 spremenljivk:
+\begin{enumerate}
+\item{\verb|Country| (imenska spremenljivka)}
+\item{\verb|CPI2014| (številska spremenljivka)}
+
+\end{enumerate}
+\
+\\
+Tabela \verb|technology|:
+V program sem jo uvozila kot html tabelo, iz spletene strani \url{http://www.nationmaster.com/country-info/stats/Economy/Technology-index}.
+V tabeli so predstavljeni tehnološki indeksi v posameznih državah.
+Sestavljena je iz 109 opazovanj in 4 spremenljivk:
+\begin{enumerate}
+
+\item{\verb|#| (številska spremenljivka)}
+\item{\verb|COUNTRY| (imenska spremenljivka)}
+\item{\verb|AMOUNT| (imenska spremenljivka)}
+\item{\verb|DATE| (številska spremenljivka)}
+\end{enumerate}
+\
+\\
+V vsaki izmed naštetih tabeli sem preverila tipe spremenljivk ter ga po potrebi spremenila. Odstranila sem nepotrebne znake, vrstice, stolpce in dodala nove. \\
+\\
 
 
+% 
+% 
+% %\includepdf[pages={1-4}]{../slike/grafi.pdf}
+% 
+% 
 \newpage
 
 \section{Analiza in vizualizacija podatkov}
 
-V tretji fazi sem podatke, ki sem jih uvozila v prejšnji fazi prikazala na zemljevidu.
-V ta namen sem v R uvozila zemljevid sveta v obliki SHP.
-Prva težava na katero sem naletela v tej fazi, je bila ta, da dveh držav, za kateri sem uvozila podatke ni bilo na zemljevidu, tako da ju nisem mogla prikazati. 
-Preden sem se lotila risanja zemljevidov sem uredila podatke, tako da so se že prej uvoženi podatki ujemali z državami na zemljevidu sveta.za ujemanje držav je bilo nekatere podatke potrebno tudi spremeniti oziroma nekoliko popraviti (npr.: Great Britain - United Kingdom, West Gemrany - Germany Soviet Union - Russia)\\
+Na podlagi danih podatkov zbranih v tabelah sem narisala 8 grafov (6 stolpičnih, 2 tortna diagrama).
+Program za risnje grafov sem napisala v datoteki \verb|grafi.r|, ki sem ga shranila v mapo \verb|slike|. Zaradi lažjega risanja grafov, sem na novo definirala nekaj spremenljivk, funkcij in pomožnih tabel.
 \\
-
-Narisala sem 4 zemljevide:
+\\
 \begin{itemize}
+\item{\verb|Graf 1|:}
 
-\item{Zemljevid1 prikazuje število dopingiranih športnikov iz posamezne države.}
-
-
-\item{Zemljevid2 prikazuje katero je najpogosteje uporabljeno nedovoljeno sredstvo v posamezni državi (imenska spremenljivka).
-Ker je moja baza podtakov relativno majhna, sem pri risanju tega zemljevida upoštevala zgolj države, v katerih je bilo vsaj 6 dopinških primerov. Podatke za ostale države sem ocenila za nerelavantne.}
-
-\item{Zemljevid3 prikazuje število odvzetih medalj na Olimpijskih igrah, zaradi pozitivnega doping testa}
-
-\item{Zemljevid4 prikazuj povprečno število dopinških primerov glede na državo, ki je gostila Olimpijske igre. 
-Ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.}\\
-\end{itemize}
-Na zemljevide sem dodala nekaj oznak, vendar z njimi raje nisem pretiravala, saj bi s tem zemljevidi postali težje berljivi.\\
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/1.pdf}
+}
+INTERPRETACIJA:
 \\
-Program za risanje zemljevidov sem napisala v datoteki vizualizacija.r, ki se nahaja v mapi vizualizacija. 
-Na koncu pa sem vse zemljevide še izvozila v PDF obliki in jih shranila v mapo slike.
+\verb|Graf 1| prikazuje število dopinških primerov na posameznih zimskih Olimpijskih igrah. Očitno je, da izstopajo Olimpijske igre v Salt Lake Cityju - 2002 in igre v Sochiju - 2014.
 
-%\includegraphics[width=\textwidth]{../slike/zemljevidi.pdf}
+\
+\item{\verb|Graf 2|:}
 
-\section{Napredna analiza podatkov}
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/2.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 2| prikazuje število dopinških primerov na posameznih poletnih Olimpijskih igrah. Očitno je, da izstopajo Olimpijske igre iz leta 2004, ki so potekale v Atenah.
+\
+\pagebreak
+\item{\verb|Graf 3|:}
 
-%\includegraphics{../slike/naselja.pdf}
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/4.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 3| prikazuje število dopinških primerov na zimskih Olimpijskih igrah po posameznih športih. Največ dopinških škandalov (10) je bilo zabeleženih med tekači na smučeh, kar me ne preseneča, saj sem v medijih zasledila, da naj bi nekatere nacije v tej panogi celo načrtno izvajale doping.
 
-\end{document}
+\
+\pagebreak
+\item{\verb|Graf 4|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/5.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 4| prikazuje število dopinških primerov na poletnih Olimpijskih igrah po posameznih športih. Daleč največ dopinških škandalov (39) je bilo zabeleženih v atletiki in v dvigovanju uteži. Razloge, da ti dve šprotni panogi kotirata tako visoko, gre iskati v naravi samega športa in v sistematičnem dopingu, ki je vsaj v atletiki vsem dobro znan že iz časov Vzhodne Nemčije.
+
+
+\
+\pagebreak
+\item{\verb|Graf 5|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/6.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 5| prikazuje razmerje dopinških primerov po spolu na zimskih Olimpijskih igrah.
+
+\
+\pagebreak
+\item{\verb|Graf 6|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/7.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 6| prikazuje razmerje dopinških primerov po spolu na poletnih Olimpijskih igrah.
+
+\
+\pagebreak
+\item{\verb|Graf 7|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/8.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 7| prikazuje število zlorab posameznih nedovoljenih sredstev. Razvidno je, da si športniki največkrat pomagajo z anaboličnimi steroidi, Furosemidom, Nandrolonom in Stanozololom.
+
+\
+\pagebreak
+\item{\verb|Graf 8|:}
+
+\makebox[\textwidth][c]{
+\includegraphics[width=\textwidth]{../slike/graf/3.pdf}
+}
+INTERPRETACIJA:
+\\
+\verb|Graf 8| prikazuje število odvzetih olimpijskih medalj zaradi dopinga.
+\end{itemize}
+
+
+
+
+% 
+% V tretji fazi sem podatke, ki sem jih uvozila v prejšnji fazi prikazala na zemljevidu.
+% V ta namen sem v R uvozila zemljevid sveta v obliki SHP.
+% Prva težava na katero sem naletela v tej fazi, je bila ta, da dveh držav, za kateri sem uvozila podatke ni bilo na zemljevidu, tako da ju nisem mogla prikazati. 
+% Preden sem se lotila risanja zemljevidov sem uredila podatke, tako da so se že prej uvoženi podatki ujemali z državami na zemljevidu sveta.za ujemanje držav je bilo nekatere podatke potrebno tudi spremeniti oziroma nekoliko popraviti (npr.: Great Britain - United Kingdom, West Gemrany - Germany Soviet Union - Russia)\\
+% \\
+% 
+% Narisala sem 4 zemljevide:
+% \begin{itemize}
+% 
+% \item{Zemljevid1 prikazuje število dopingiranih športnikov iz posamezne države.}
+% 
+% 
+% \item{Zemljevid2 prikazuje katero je najpogosteje uporabljeno nedovoljeno sredstvo v posamezni državi (imenska spremenljivka).
+% Ker je moja baza podtakov relativno majhna, sem pri risanju tega zemljevida upoštevala zgolj države, v katerih je bilo vsaj 6 dopinških primerov. Podatke za ostale države sem ocenila za nerelavantne.}
+% 
+% \item{Zemljevid3 prikazuje število odvzetih medalj na Olimpijskih igrah, zaradi pozitivnega doping testa}
+% 
+% \item{Zemljevid4 prikazuj povprečno število dopinških primerov glede na državo, ki je gostila Olimpijske igre. 
+% Ker so nekatere države gostile Olimpijske igre večkrat, sem se odločila da bom vzela povprečje, s tem pa so tudi dani podatki postali bolj primerljivi.}\\
+% \end{itemize}
+% Na zemljevide sem dodala nekaj oznak, vendar z njimi raje nisem pretiravala, saj bi s tem zemljevidi postali težje berljivi.\\
+% \\
+% Program za risanje zemljevidov sem napisala v datoteki vizualizacija.r, ki se nahaja v mapi vizualizacija. 
+% Na koncu pa sem vse zemljevide še izvozila v PDF obliki in jih shranila v mapo slike.
+% 
+% %\includegraphics[width=\textwidth]{../slike/zemljevidi.pdf}
+% 
+% \section{Napredna analiza podatkov}
+% 
+% %\includegraphics{../slike/naselja.pdf}
+% 
+ \end{document}
