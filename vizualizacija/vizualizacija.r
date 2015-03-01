@@ -7,7 +7,7 @@ source("lib/uvozi.zemljevid.r")
 
 cat("Uvažam zemljevid... \n")
 
-cairo_pdf("slike/zemljevidi.pdf", width = 9.27, height = 9.69,
+cairo_pdf("slike/zemljevidi/1.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)
 
 
@@ -48,7 +48,10 @@ print(spplot(svet, "primeri", col.regions = c("white", rainbow(16, start=0, end=
        main = "Število dopinških primerov po državah", 
        sp.layout = list("sp.text", koordinate, row.names(koordinate), cex=0.8),
        par.settings = list(panel.background=list(col="lightblue"))))
+dev.off()
 
+cairo_pdf("slike/zemljevidi/2.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
 
 svet$substanca <- c("")
 #naredimo novo tabelo upostevamo zgolj relavantne podatke
@@ -80,6 +83,11 @@ legend("bottomleft", legend = levels(factor(svet$substanca[svet$substanca!= ""])
       fill = levels(factor(barve[svet$substanca != ""])), bg = "white")
 title("Najpogosteje uporabljeno nedovoljeno sredstvo")
 
+dev.off()
+
+cairo_pdf("slike/zemljevidi/3.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
+
 #tabela odvzetih medalj:
 medals <- merge(gold.medals, silver.medals, all = TRUE)
 medals <- merge(medals, bronze.medals, all = TRUE)
@@ -106,6 +114,11 @@ print(spplot(svet, "odvzete.medalje", col.regions = c("white", rainbow(15, start
        main = "Število odvzetih olimpijskih medalj zaradi dopinga",
        sp.layout = list("sp.text", koordinate, row.names(koordinate), cex=0.8),
        par.settings = list(panel.background=list(col="lightblue"))))
+
+dev.off()
+
+cairo_pdf("slike/zemljevidi/4.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
        
 
 OI$host.country[OI$Place == "Munich"] <- "Germany"

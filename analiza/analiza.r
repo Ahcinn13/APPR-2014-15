@@ -1,6 +1,6 @@
 # 4. faza: Analiza podatkov
 
-cairo_pdf("slike/napredna_analiza.pdf", width = 9.27, height = 9.69,
+cairo_pdf("slike/napredna_analiza/1.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)
 
 
@@ -62,7 +62,10 @@ plot(korupcija$primeri, korupcija$INDEKSI,
 abline(v = 4, col = "black", lty = "dotted")
 
 
+dev.off()
 
+cairo_pdf("slike/napredna_analiza/2.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
 
 
 #dendrogram glede na število dopinških primerov
@@ -74,7 +77,10 @@ legend("topleft", c("Skupina 1", "Skupina 2","Skupina 3","Skupina 4"),lty=c(1,1,
 rect.hclust(t,k=4,border=c("red", "blue", "magenta", "orange"))
 
 
+dev.off()
 
+cairo_pdf("slike/napredna_analiza/3.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
 
 
 #tehnološki indeks
@@ -103,7 +109,10 @@ MLS <- loess(korupcija$technologija ~ r)
 curve(predict(MLS, data.frame(r=x)), add = TRUE, col = "black")
 
 
+dev.off()
 
+cairo_pdf("slike/napredna_analiza/4.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
 
 #modeli
 
@@ -155,7 +164,10 @@ ostanki1 <- sapply(list(lin1, kv1, mls1), function(x) sum(x$residuals^2))
 
 legend("bottomright", c("Linerana metoda", "Kvadratna metoda","Loess"),lty=c(1,1,1), col = c("blue","red","orange"))
 
+dev.off()
 
+cairo_pdf("slike/napredna_analiza/5.pdf", width = 9.27, height = 9.69,
+          family = "Arial", onefile = TRUE)
 
 #število pozitivnih vzorcev
 plot(c(2003,2010), c(min(vzorci[3]), max(vzorci[3])), type = "n",
