@@ -82,22 +82,7 @@ korupcija$technologija <- technology$AMOUNT[match(drzave, technology$COUNTRY)]
 
 korupcija$technologija <- gsub("[.]", "", korupcija$technologija, ignore.case=TRUE)
 korupcija$technologija <- as.numeric(korupcija$technologija)/100
-# korupcija$technologija[27]<- 3.22
-# korupcija$technologija[22]<- 3.42
-# korupcija$technologija[29]<- 3.64
-# korupcija$technologija[2]<- 3.66
-# korupcija$technologija[34]<- 2.35
-# korupcija$technologija[4]<- 4.03
-# 
-# korupcija$technologija[22]<- 3.42
-# korupcija$technologija[39]<- 4.54
-# korupcija$technologija[32]<- 4.07
-# korupcija$technologija[31]<- 3.89
-# korupcija$technologija[36]<- 5.54
-# korupcija$technologija[1]<- 0
-# korupcija$technologija[7]<- 0
-# korupcija$technologija[45]<- 0
-# korupcija$technologija[50]<- 0
+
 korupcija$technologija[49]<-6.24
 
 plot(korupcija$primeri, korupcija$technologija, 

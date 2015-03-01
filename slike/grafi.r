@@ -83,45 +83,7 @@ text(0, 0.5, paste0(moski,"%"), col = "black")
 zenske <- round(sum(doping.POI$Sex=="W")*100/(sum(doping.POI$Sex=="M")+sum(doping.POI$Sex=="W")), digits=2)
 moski <- round(sum(doping.POI$Sex=="M")*100/(sum(doping.POI$Sex=="M")+sum(doping.POI$Sex=="W")), digits=2)
 
-# Pomožna funkcija
-vsota2 <- function(VEK) {
-  z <- c()
-  b <- c()
-  for (i in VEK) {
-    y <- c(sum(doping.data$Samples[doping.data$Year == i]))
-    d <- c(sum(doping.data$Total.findings[doping.data$Year== i]))
-    z <- c(z,y)
-    b <- c(b,d)
-  }
-  return(data.frame(2003:2010,z,b))
-}
 
-vzorci <- vsota2(2003:2010)
-names(vzorci) <- c("leto", "Samples", "Total.findings")
-
-# #število pozitivnih vzorcev
-# plot(c(2003,2010), c(min(vzorci[3]), max(vzorci[3])), type = "n",
-#      xlab="Leto", ylab="število dopinških testov",
-#      main="šTEVILO DOPINšKIH TESTOV")
-# lines(c(2003:2010), vzorci$Total.findings[vzorci$leto == c(2003:2010)], type="l", pch=20, col="blue")
-# legend("topleft",
-#        legend = c("število pozitivnih vzorcev"),
-#        col = c("blue"),
-#        lty = c("solid"),
-#        pch = c(20),
-#        bg = ("white"))
-# 
-# #število vseh vzorcev
-# plot(c(2003,2010), c(min(vzorci[2]), max(vzorci[2])), type = "n",
-#      xlab="Leto", ylab="število dopinških testov"
-#      )
-# lines(c(2003:2010), vzorci$Samples[vzorci$leto == c(2003:2010)], type="l", pch=20, col="magenta")
-# legend("topleft",
-#        legend = c("število vseh vzorcev"),
-#        col = c("magenta"),
-#        lty = c("solid"),
-#        pch = c(20),
-#        bg = ("white"))
 
 #zlorabljene substance
 vek <- data.frame(table(OI$Banned.substance))$Freq !=1
