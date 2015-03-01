@@ -1,7 +1,7 @@
 #pdf("slike/graf.pdf", paper="a4")
 
 
-cairo_pdf("slike/gragfdfefebndfi.pdf", width = 9.27, height = 9.69,
+cairo_pdf("slike/graf.pdf", width = 9.27, height = 9.69,
           family = "Arial", onefile = TRUE)
 
 year.place <- paste(doping.ZOI$Year, doping.ZOI$Place, sep="-")
@@ -37,7 +37,7 @@ slovar[slovar=="Ice hockey"]<-"Hokej"
 slovar[slovar=="Ice hockey"]<-"Hokej"
 slovar[slovar=="Ice hockey"]<-"Hokej"
 
-barplot(table(slovar), beside = TRUE, main = "DOPINšKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO SPORTIH", 
+barplot(table(slovar), beside = TRUE, main = "DOPINšKI PRIMERI NA ZIMSKIH OLIMPIJSKH IGRAH PO ŠPORTIH", 
         xlab="ŠPORTNE PANOGE",cex.names=0.8, space= 0.5, ylab= "število dopinških primerov", 
         col = rainbow(6), xlim=c(0,7))
 
